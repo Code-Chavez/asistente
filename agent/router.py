@@ -44,8 +44,10 @@ class SkillRouter:
         success = bool(result.get("success", False))
         reward = 1.0 if success else 0.0
         
-        # Actualizamos bandit y memory
-        self.bandit.update(action, reward, context)
+        # Actualizamos bandit y memory. learn=False: la ejecución registra el
+        # resultado real (stats + valor MAB) pero NO enseña la intención al
+        # clasificador; eso solo ocurre con feedback humano explícito (👍).
+        self.bandit.update(action, reward, context, learn=False)
         self.memory.record_outcome(action, success)
         
         # Actualizamos la memoria conversacional profunda (si no es dry_run de entrenamiento)

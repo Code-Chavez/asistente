@@ -139,8 +139,14 @@ def main():
             train_epochs(30)
         router.save_model(MODEL_PATH)
         print("Entrenamiento listo. Iniciando GUI...")
+
+        def on_feedback(action, reward, ctx):
+            # El 👍 refuerza la intención; el 👎 solo registra el fallo.
+            router.add_feedback(action, reward, ctx)
+            router.save_model(MODEL_PATH)
+
         try:
-            run_gui(router.execute)
+            run_gui(router.execute, on_feedback, actions=list(router.skills.keys()))
         finally:
             # Persistimos lo aprendido online durante la sesión (ejecuciones reales)
             router.save_model(MODEL_PATH)

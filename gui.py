@@ -16,9 +16,15 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
 class JarvisGUI(ctk.CTk):
-    def __init__(self, execute_callback: Callable[[Dict[str, Any]], Dict[str, Any]]):
+    def __init__(self, execute_callback: Callable[[Dict[str, Any]], Dict[str, Any]],
+                 feedback_callback: Callable[[str, float, Dict[str, Any]], None] = None,
+                 actions: list = None):
         super().__init__()
         self.execute_callback = execute_callback
+        self.feedback_callback = feedback_callback
+        self.actions = actions or []          # acciones disponibles para corregir
+        self.pending_feedback = None          # (action, query) de la última respuesta
+        self.correction_query = None          # texto pendiente de corrección tras un 👎
         self.title("Jarvis Assistant")
         self.geometry("700x500")
         # Output console
@@ -39,7 +45,91 @@ class JarvisGUI(ctk.CTk):
             self.mic_btn.pack(side="left", padx=(0, 5))
         self.btn = ctk.CTkButton(self.input_frame, text="Enviar", command=self.process_input, height=40, font=("Consolas", 14, "bold"))
         self.btn.pack(side="right")
+        # Barra de feedback 👍/👎 (solo si hay callback de aprendizaje)
+        if self.feedback_callback:
+            self.feedback_frame = ctk.CTkFrame(self, fg_color="transparent")
+            self.feedback_frame.pack(pady=(0, 10), padx=20, fill="x")
+            self.feedback_label = ctk.CTkLabel(self.feedback_frame, text="Esperando un comando...", font=("Consolas", 12))
+            self.feedback_label.pack(side="left", padx=(0, 10))
+            self.up_btn = ctk.CTkButton(self.feedback_frame, text="👍", width=50, height=32,
+                                        command=lambda: self._send_feedback(True),
+                                        fg_color="#2E7D32", hover_color="#1B5E20")
+            self.up_btn.pack(side="left", padx=5)
+            self.down_btn = ctk.CTkButton(self.feedback_frame, text="👎", width=50, height=32,
+                                          command=lambda: self._send_feedback(False),
+                                          fg_color="#C62828", hover_color="#8E0000")
+            self.down_btn.pack(side="left", padx=5)
+            # Barra de corrección (oculta hasta que haya un 👎)
+            self.correction_frame = ctk.CTkFrame(self, fg_color="transparent")
+            self.correction_label = ctk.CTkLabel(self.correction_frame, text="¿Cuál debió ser?", font=("Consolas", 12))
+            self.correction_label.pack(side="left", padx=(0, 10))
+            self.correction_menu = ctk.CTkOptionMenu(self.correction_frame,
+                                                     values=self.actions or ["(sin acciones)"], width=220)
+            self.correction_menu.pack(side="left", padx=5)
+            self.correction_confirm = ctk.CTkButton(self.correction_frame, text="Corregir", width=90, height=32,
+                                                    command=self._confirm_correction,
+                                                    fg_color="#1565C0", hover_color="#0D47A1")
+            self.correction_confirm.pack(side="left", padx=5)
+            self._set_feedback_enabled(False)
         self.log_message("Sistema", "Jarvis inicializado. Interfaces online.")
+
+    def _set_feedback_enabled(self, enabled: bool):
+        if not self.feedback_callback:
+            return
+        state = "normal" if enabled else "disabled"
+        self.up_btn.configure(state=state)
+        self.down_btn.configure(state=state)
+        self.feedback_label.configure(
+            text="¿La última acción fue la correcta?" if enabled else "Esperando un comando..."
+        )
+
+    def _apply_feedback(self, action: str, reward: float, query: str):
+        """Envía el feedback al router en segundo plano (puede guardar el modelo)."""
+        def run():
+            try:
+                self.feedback_callback(action, reward, {"q": query})
+            except Exception as e:
+                self.after(0, lambda: self.log_message("Sistema", f"Error guardando feedback: {e}"))
+        threading.Thread(target=run, daemon=True).start()
+
+    def _send_feedback(self, positive: bool):
+        if not self.pending_feedback:
+            return
+        action, query = self.pending_feedback
+        self.pending_feedback = None
+        self._set_feedback_enabled(False)
+
+        if positive:
+            self.log_message("Sistema", f"👍 Feedback registrado para [{action}]: reforzaré esa intención. ¡Gracias!")
+            self._apply_feedback(action, 1.0, query)
+        else:
+            # Registramos el fallo de la acción equivocada...
+            self.log_message("Sistema", f"👎 Anotado que [{action}] no era la correcta.")
+            self._apply_feedback(action, 0.0, query)
+            # ...y pedimos la acción correcta para aprenderla de verdad.
+            if self.actions:
+                self.correction_query = query
+                self._show_correction(exclude=action)
+
+    def _show_correction(self, exclude: str = None):
+        opts = [a for a in self.actions if a != exclude] or list(self.actions)
+        self.correction_menu.configure(values=opts)
+        self.correction_menu.set(opts[0])
+        self.correction_frame.pack(pady=(0, 10), padx=20, fill="x")
+
+    def _hide_correction(self):
+        if self.feedback_callback:
+            self.correction_query = None
+            self.correction_frame.pack_forget()
+
+    def _confirm_correction(self):
+        correct = self.correction_menu.get()
+        query = self.correction_query
+        self._hide_correction()
+        if not correct or not query:
+            return
+        self.log_message("Sistema", f"✅ Aprendido: '{query}' → [{correct}]. ¡Gracias por corregirme!")
+        self._apply_feedback(correct, 1.0, query)
     def log_message(self, sender: str, message: str):
         self.textbox.configure(state="normal")
         self.textbox.insert("end", f"[{sender}] {message}\n\n")
@@ -128,6 +218,10 @@ class JarvisGUI(ctk.CTk):
         self.log_message("Usuario (Voz)", text)
         threading.Thread(target=self._process_command, args=(text,), daemon=True).start()
     def _process_command(self, text: str):
+        if self.feedback_callback:
+            self.pending_feedback = None
+            self.after(0, self._hide_correction)
+            self.after(0, lambda: self._set_feedback_enabled(False))
         response = self.execute_callback({"q": text, "dry_run": False})
         action = response.get("action", "Desconocido")
         res_data = response.get("result", {})
@@ -144,6 +238,10 @@ class JarvisGUI(ctk.CTk):
         if data:
             msg += f"\nDetalles: {data}"
         self.after(0, lambda: self.log_message("Jarvis", msg))
-def run_gui(execute_callback):
-    app = JarvisGUI(execute_callback)
+        # Habilitamos el feedback para esta acción concreta
+        if self.feedback_callback and action and action != "Desconocido":
+            self.pending_feedback = (action, text)
+            self.after(0, lambda: self._set_feedback_enabled(True))
+def run_gui(execute_callback, feedback_callback=None, actions=None):
+    app = JarvisGUI(execute_callback, feedback_callback, actions)
     app.mainloop()

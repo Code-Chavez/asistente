@@ -82,7 +82,7 @@ class ContextualBandit:
         except Exception as e:
             print(f"[Bandit] Error training model: {e}")
 
-    def update(self, action: str, reward: float, context: Dict[str, Any] = None):
+    def update(self, action: str, reward: float, context: Dict[str, Any] = None, learn: bool = True):
         if action not in self.actions:
             return
 
@@ -91,9 +91,11 @@ class ContextualBandit:
         n = self.counts[action]
         self.values[action] += (reward - self.values[action]) / n
 
-        # Aprendizaje online: solo reforzamos el clasificador con ejemplos
-        # positivos (la acción fue buena para este contexto).
-        if reward > 0:
+        # Aprendizaje online del clasificador de intención: SOLO cuando hay una
+        # señal explícita de que la intención fue correcta (learn=True y reward>0).
+        # OJO: que un skill se ejecute sin error (success=True) no significa que
+        # la intención fuese la correcta, por eso la ejecución real pasa learn=False.
+        if learn and reward > 0:
             self.train_intent(action, context)
 
     def save(self, path: str):
