@@ -51,9 +51,14 @@ def main():
     training_data = [
         {"q": "clima hoy", "expected_action": "buscar_web"},
         {"q": "busca en google el clima", "expected_action": "buscar_web"},
+        {"q": "que temperatura hace hoy", "expected_action": "buscar_web"},
+        {"q": "que tiempo va a hacer manana", "expected_action": "buscar_web"},
         {"q": "investiga sobre inteligencia artificial", "expected_action": "buscar_web"},
         {"q": "busca imagenes de gatos", "expected_action": "buscar_web"},
         {"q": "dime sobre la revolucion francesa", "expected_action": "buscar_web"},
+        {"q": "cuanto cuesta el dolar hoy", "expected_action": "buscar_web"},
+        {"q": "buscame recetas de pizza", "expected_action": "buscar_web"},
+        {"q": "quien gano el partido de ayer", "expected_action": "buscar_web"},
         
         {"q": "pon en youtube un video de risa", "expected_action": "buscar_youtube"},
         {"q": "reproduce la cancion despacito en youtube", "expected_action": "buscar_youtube"},
@@ -79,6 +84,9 @@ def main():
         {"q": "abre el explorador", "expected_action": "abrir_app"},
         {"q": "inicia la calculadora", "expected_action": "abrir_app"},
         {"q": "ejecuta notepad", "expected_action": "abrir_app"},
+        {"q": "abre la calculadora", "expected_action": "abrir_app"},
+        {"q": "abre el bloc de notas", "expected_action": "abrir_app"},
+        {"q": "abre paint", "expected_action": "abrir_app"},
         
         {"q": "envia un whatsapp a maria hola", "expected_action": "enviar_whatsapp"},
         {"q": "mandale un mensaje por whatsapp a carlos", "expected_action": "enviar_whatsapp"},
