@@ -14,6 +14,8 @@ import threading
 try:
     import numpy as np
     import sounddevice as sd
+    from math import gcd
+    from scipy.signal import resample_poly
     import openwakeword
     from openwakeword.model import Model
     OPENWAKEWORD_AVAILABLE = True
@@ -87,17 +89,32 @@ class WakeWordListener:
             all_keys = list(getattr(model, "models", {}).keys())
             keys = [k for k in all_keys if "jarvis" in k.lower()] or all_keys or [self.keyword]
             print(f"[WakeWord] escuchando; claves del modelo: {keys}")
-            self._status(f"Escuchando 'Hey Jarvis' (modelo: {', '.join(keys)})")
 
-            stream = sd.InputStream(samplerate=SAMPLE_RATE, channels=1,
-                                    dtype="int16", blocksize=FRAME)
+            # Capturamos a la frecuencia NATIVA del micrófono y remuestreamos
+            # a 16 kHz: abrir el micro directo a 16 kHz devuelve silencio en
+            # muchas tarjetas de sonido de Windows.
+            try:
+                dev = sd.query_devices(kind="input")
+                native = int(dev.get("default_samplerate") or SAMPLE_RATE)
+            except Exception:
+                native = SAMPLE_RATE
+            frames_native = max(int(native * 0.08), FRAME)  # bloques de 80 ms
+            g = gcd(SAMPLE_RATE, native)
+            up, down = SAMPLE_RATE // g, native // g
+            self._status(f"Escuchando 'Hey Jarvis' (micro a {native} Hz → 16000 Hz)")
+
+            stream = sd.InputStream(samplerate=native, channels=1,
+                                    dtype="float32", blocksize=frames_native)
             stream.start()
             peak = 0.0
             peak_amp = 0
             last_report = time.time()
             while self._running:
-                data, _ = stream.read(FRAME)
-                audio = np.asarray(data, dtype=np.int16).reshape(-1)
+                data, _ = stream.read(frames_native)
+                mono = np.asarray(data, dtype=np.float32).reshape(-1)
+                if native != SAMPLE_RATE:
+                    mono = resample_poly(mono, up, down)
+                audio = np.clip(mono * 32768.0, -32768, 32767).astype(np.int16)
                 prediction = model.predict(audio)
                 score = max((prediction.get(k, 0.0) for k in keys), default=0.0)
                 if score > 0.3:  # traza de depuración para calibrar sensibilidad

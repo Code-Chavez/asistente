@@ -191,6 +191,8 @@ class JarvisGUI(ctk.CTk):
         if self.wake_listener.start():
             self.wake_btn.configure(text="👂", fg_color="#1565C0")
             self.log_message("Sistema", "Modo manos libres activo. Di 'Hey Jarvis' para hablarme.")
+            # Señal audible de que la escucha está activa
+            self.speak_text("Escuchando, señor.")
         else:
             err = self.wake_listener.error or "No se pudo iniciar la escucha."
             self.wake_listener = None
