@@ -89,7 +89,8 @@ class JarvisGUI(ctk.CTk):
             try:
                 self.feedback_callback(action, reward, {"q": query})
             except Exception as e:
-                self.after(0, lambda: self.log_message("Sistema", f"Error guardando feedback: {e}"))
+                msg = str(e)
+                self.after(0, lambda: self.log_message("Sistema", f"Error guardando feedback: {msg}"))
         threading.Thread(target=run, daemon=True).start()
 
     def _send_feedback(self, positive: bool):
@@ -208,9 +209,11 @@ class JarvisGUI(ctk.CTk):
             except sr.UnknownValueError:
                 self.after(0, lambda: self.log_message("Sistema", "No pude entender el audio."))
             except sr.RequestError as e:
-                self.after(0, lambda: self.log_message("Sistema", f"Error de red: {e}"))
+                msg = str(e)
+                self.after(0, lambda: self.log_message("Sistema", f"Error de red: {msg}"))
         except Exception as e:
-            self.after(0, lambda: self.log_message("Sistema", f"Error de micrófono: {e}"))
+            msg = str(e)
+            self.after(0, lambda: self.log_message("Sistema", f"Error de micrófono: {msg}"))
         finally:
             self.is_recording = False
             self.after(0, lambda: self.mic_btn.configure(text="🎙️", state="normal", fg_color="#333333"))
