@@ -26,6 +26,9 @@ notes/*.png
 # ---- Audio temporal ----
 *.wav
 
+# ---- Capturas de calibración de botones (personales) ----
+assets/*.png
+
 # ---- Secreto: AccessKey de Picovoice (wake word) ----
 picovoice.key
 .picovoice_key
