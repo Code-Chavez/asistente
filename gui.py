@@ -53,6 +53,9 @@ class JarvisGUI(ctk.CTk):
             self.wake_btn.pack(side="left", padx=(0, 5))
         self.btn = ctk.CTkButton(self.input_frame, text="Enviar", command=self.process_input, height=40, font=("Consolas", 14, "bold"))
         self.btn.pack(side="right")
+        # Estado del wake word (se actualiza en vivo con el pico de detección)
+        self.wake_status_label = ctk.CTkLabel(self, text="", font=("Consolas", 11), text_color="#888888")
+        self.wake_status_label.pack(pady=(0, 4), padx=20, anchor="w")
         # Barra de feedback 👍/👎 (solo si hay callback de aprendizaje)
         if self.feedback_callback:
             self.feedback_frame = ctk.CTkFrame(self, fg_color="transparent")
@@ -180,9 +183,11 @@ class JarvisGUI(ctk.CTk):
             self.wake_listener.stop()
             self.wake_listener = None
             self.wake_btn.configure(text="🗣️", fg_color="#333333")
+            self.wake_status_label.configure(text="")
             self.log_message("Sistema", "Modo manos libres desactivado.")
             return
-        self.wake_listener = WakeWordListener(on_wake=self._on_wake_word)
+        self.wake_listener = WakeWordListener(on_wake=self._on_wake_word,
+                                              on_status=self._on_wake_status)
         if self.wake_listener.start():
             self.wake_btn.configure(text="👂", fg_color="#1565C0")
             self.log_message("Sistema", "Modo manos libres activo. Di 'Hey Jarvis' para hablarme.")
@@ -190,6 +195,10 @@ class JarvisGUI(ctk.CTk):
             err = self.wake_listener.error or "No se pudo iniciar la escucha."
             self.wake_listener = None
             self.log_message("Sistema", f"No pude activar manos libres: {err}")
+
+    def _on_wake_status(self, msg: str):
+        """Muestra en vivo el estado/pico del wake word (llamado desde el listener)."""
+        self.after(0, lambda: self.wake_status_label.configure(text=f"🎙️ {msg}"))
 
     def _on_wake_word(self):
         """Se ejecuta (en el hilo del listener) al detectar 'Jarvis'."""

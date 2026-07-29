@@ -8,6 +8,7 @@ Requisitos:
   pip install openwakeword onnxruntime sounddevice numpy
 Los modelos pre-entrenados se descargan solos la primera vez (una única vez).
 """
+import time
 import threading
 
 try:
@@ -30,13 +31,22 @@ class WakeWordListener:
     resto de la app pueda capturar el comando dictado; luego se reanuda.
     """
 
-    def __init__(self, on_wake, keyword: str = "hey_jarvis", threshold: float = 0.5):
+    def __init__(self, on_wake, keyword: str = "hey_jarvis", threshold: float = 0.4,
+                 on_status=None):
         self.on_wake = on_wake
         self.keyword = keyword
         self.threshold = threshold
+        self.on_status = on_status   # callback opcional para reportar estado/score
         self.error = None
         self._thread = None
         self._running = False
+
+    def _status(self, msg: str):
+        if self.on_status:
+            try:
+                self.on_status(msg)
+            except Exception:
+                pass
 
     def available(self) -> bool:
         return OPENWAKEWORD_AVAILABLE
@@ -77,10 +87,13 @@ class WakeWordListener:
             all_keys = list(getattr(model, "models", {}).keys())
             keys = [k for k in all_keys if "jarvis" in k.lower()] or all_keys or [self.keyword]
             print(f"[WakeWord] escuchando; claves del modelo: {keys}")
+            self._status(f"Escuchando 'Hey Jarvis' (modelo: {', '.join(keys)})")
 
             stream = sd.InputStream(samplerate=SAMPLE_RATE, channels=1,
                                     dtype="int16", blocksize=FRAME)
             stream.start()
+            peak = 0.0
+            last_report = time.time()
             while self._running:
                 data, _ = stream.read(FRAME)
                 audio = np.asarray(data, dtype=np.int16).reshape(-1)
@@ -88,6 +101,13 @@ class WakeWordListener:
                 score = max((prediction.get(k, 0.0) for k in keys), default=0.0)
                 if score > 0.3:  # traza de depuración para calibrar sensibilidad
                     print(f"[WakeWord] score={score:.2f}")
+                # Reporte de pico a la GUI cada ~1.5 s para ver si el micro registra
+                peak = max(peak, score)
+                if time.time() - last_report > 1.5:
+                    self._status(f"micrófono OK · pico 'Hey Jarvis' = {peak:.2f} "
+                                 f"(dispara a {self.threshold})")
+                    peak = 0.0
+                    last_report = time.time()
                 if score > self.threshold:
                     # Detectado: liberamos el micro para capturar el comando
                     stream.stop()
