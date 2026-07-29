@@ -1,7 +1,7 @@
 import os
 import sys
 from agent import SkillRouter
-from skills import buscar_web, buscar_youtube, crear_nota, abrir_app, enviar_whatsapp, abrir_excel, crear_documento, analizar_pantalla, cancelar_accion, seleccionar_opcion, controlar_pantalla
+from skills import buscar_web, buscar_youtube, crear_nota, abrir_app, enviar_whatsapp, abrir_excel, crear_documento, analizar_pantalla, cancelar_accion, seleccionar_opcion, controlar_pantalla, enviar_nota_voz, llamar_whatsapp, grabar_audio
 from gui import run_gui
 
 MODEL_PATH = os.path.join("agent", "model.pkl")
@@ -20,6 +20,9 @@ def main():
     router.register_skill("crear_documento", crear_documento)
     router.register_skill("analizar_pantalla", analizar_pantalla)
     router.register_skill("cancelar_accion", cancelar_accion)
+    router.register_skill("grabar_audio", grabar_audio)
+    router.register_skill("enviar_nota_voz", enviar_nota_voz)
+    router.register_skill("llamar_whatsapp", llamar_whatsapp)
     
     if "--reset" in sys.argv:
         pref_path = os.path.join("agent", "preferences.json")
@@ -111,6 +114,19 @@ def main():
         {"q": "detente", "expected_action": "cancelar_accion"},
         {"q": "para la automatizacion", "expected_action": "cancelar_accion"},
         {"q": "abortar mision", "expected_action": "cancelar_accion"},
+
+        {"q": "graba un audio", "expected_action": "grabar_audio"},
+        {"q": "graba una nota de voz de 10 segundos", "expected_action": "grabar_audio"},
+        {"q": "grabame un memo de voz", "expected_action": "grabar_audio"},
+        {"q": "empieza a grabar audio", "expected_action": "grabar_audio"},
+
+        {"q": "manda una nota de voz a maria por whatsapp", "expected_action": "enviar_nota_voz"},
+        {"q": "envia un audio de whatsapp a carlos", "expected_action": "enviar_nota_voz"},
+        {"q": "grabale una nota de voz a mama por whatsapp", "expected_action": "enviar_nota_voz"},
+
+        {"q": "llama a carlos por whatsapp", "expected_action": "llamar_whatsapp"},
+        {"q": "hazle una llamada a maria", "expected_action": "llamar_whatsapp"},
+        {"q": "llamada de voz a papa por whatsapp", "expected_action": "llamar_whatsapp"},
     ]
     
     contexts = load_contexts(training_data)
