@@ -72,6 +72,12 @@ class WakeWordListener:
         stream = None
         try:
             model = self._crear_modelo()
+            # Usamos las claves REALES que carga el modelo (p.ej. 'hey_jarvis_v0.1'),
+            # en vez de adivinar el nombre. Filtramos por 'jarvis' por si se cargan varias.
+            all_keys = list(getattr(model, "models", {}).keys())
+            keys = [k for k in all_keys if "jarvis" in k.lower()] or all_keys or [self.keyword]
+            print(f"[WakeWord] escuchando; claves del modelo: {keys}")
+
             stream = sd.InputStream(samplerate=SAMPLE_RATE, channels=1,
                                     dtype="int16", blocksize=FRAME)
             stream.start()
@@ -79,7 +85,10 @@ class WakeWordListener:
                 data, _ = stream.read(FRAME)
                 audio = np.asarray(data, dtype=np.int16).reshape(-1)
                 prediction = model.predict(audio)
-                if prediction.get(self.keyword, 0.0) > self.threshold:
+                score = max((prediction.get(k, 0.0) for k in keys), default=0.0)
+                if score > 0.3:  # traza de depuración para calibrar sensibilidad
+                    print(f"[WakeWord] score={score:.2f}")
+                if score > self.threshold:
                     # Detectado: liberamos el micro para capturar el comando
                     stream.stop()
                     try:
