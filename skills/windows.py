@@ -1,4 +1,5 @@
 import os
+import re
 import time
 import random
 import webbrowser
@@ -406,3 +407,127 @@ def enviar_whatsapp(ctx: Dict[str, Any]) -> Dict[str, Any]:
         return {"success": False, "message": str(e)}
     except Exception as e:
         return {"success": False, "error": str(e), "message": "Falló la automatización RPA."}
+
+
+# ---- Automatización avanzada de WhatsApp (nota de voz y llamada) ----
+# Estas acciones localizan botones en pantalla por imagen. Necesitan capturas
+# de referencia (hazlas una vez desde TU WhatsApp) en la carpeta assets/:
+#   assets/wa_mic.png   -> botón del micrófono
+#   assets/wa_send.png  -> botón de enviar (opcional)
+#   assets/wa_call.png  -> botón de llamada de voz
+# Es un enfoque best-effort: depende de tu resolución/tema y puede fallar.
+
+def _assets_dir() -> str:
+    base = os.path.dirname(os.path.dirname(__file__))
+    return os.path.join(base, "assets")
+
+
+def _dur_segundos(q: str, default: int = 5) -> int:
+    """Duración pedida en la frase (p.ej. 'nota de voz de 10 segundos')."""
+    m = re.search(r"(\d+)\s*(seg|segundo|segundos|s)?\b", q.lower())
+    if m:
+        try:
+            return max(1, min(int(m.group(1)), 120))
+        except ValueError:
+            pass
+    return default
+
+
+def _localizar_boton(nombre_img: str):
+    """Centro (x, y) de un botón por imagen, o None si no está calibrado/visible."""
+    if not PYAUTOGUI_AVAILABLE:
+        return None
+    ruta = os.path.join(_assets_dir(), nombre_img)
+    if not os.path.exists(ruta):
+        return None
+    try:
+        # confidence requiere opencv; si no está instalado, cae a coincidencia exacta.
+        try:
+            return pyautogui.locateCenterOnScreen(ruta, confidence=0.8)
+        except TypeError:
+            return pyautogui.locateCenterOnScreen(ruta)
+    except Exception:
+        return None
+
+
+def _abrir_chat_whatsapp(contact: str) -> bool:
+    """Abre WhatsApp Desktop y entra al chat del contacto vía búsqueda."""
+    subprocess.Popen("start whatsapp:", shell=True)
+    safe_sleep(6.0)
+    if not contact:
+        return False
+    pyautogui.hotkey('ctrl', 'f')
+    safe_sleep(1.0)
+    pyautogui.write(contact, interval=0.05)
+    safe_sleep(2.0)
+    pyautogui.press('enter')
+    safe_sleep(1.5)
+    return True
+
+
+def enviar_nota_voz(ctx: Dict[str, Any]) -> Dict[str, Any]:
+    global CANCEL_FLAG
+    CANCEL_FLAG = False
+    q_original = ctx.get("q", "")
+    dry = bool(ctx.get("dry_run", False))
+    seconds = _dur_segundos(q_original)
+
+    if dry:
+        return {"success": True}
+
+    if not PYAUTOGUI_AVAILABLE:
+        return {"success": False, "message": "Falta pyautogui para grabar notas de voz por RPA."}
+
+    if not os.path.exists(os.path.join(_assets_dir(), "wa_mic.png")):
+        return {"success": False, "message": "Para notas de voz necesito una captura del botón del micrófono en assets/wa_mic.png."}
+
+    contact, _ = parse_whatsapp_command(q_original)
+    try:
+        _abrir_chat_whatsapp(contact)
+        mic = _localizar_boton("wa_mic.png")
+        if mic is None:
+            return {"success": False, "message": "No encontré el botón de micrófono en pantalla (revisa assets/wa_mic.png)."}
+        # Mantener pulsado para grabar la nota de voz
+        pyautogui.mouseDown(mic.x, mic.y)
+        safe_sleep(seconds)
+        pyautogui.mouseUp(mic.x, mic.y)
+        safe_sleep(0.5)
+        # Si hay un botón de envío separado, lo pulsamos
+        send = _localizar_boton("wa_send.png")
+        if send is not None:
+            pyautogui.click(send.x, send.y)
+        destino = contact or "el chat abierto"
+        return {"success": True, "message": f"Nota de voz de ~{seconds}s enviada a {destino}."}
+    except InterruptedError as e:
+        return {"success": False, "message": str(e)}
+    except Exception as e:
+        return {"success": False, "error": str(e), "message": "Falló la nota de voz por RPA."}
+
+
+def llamar_whatsapp(ctx: Dict[str, Any]) -> Dict[str, Any]:
+    global CANCEL_FLAG
+    CANCEL_FLAG = False
+    q_original = ctx.get("q", "")
+    dry = bool(ctx.get("dry_run", False))
+
+    if dry:
+        return {"success": True}
+
+    if not PYAUTOGUI_AVAILABLE:
+        return {"success": False, "message": "Falta pyautogui para llamar por RPA."}
+
+    contact, _ = parse_whatsapp_command(q_original)
+    if not contact:
+        return {"success": False, "message": "¿A quién llamo? No detecté el contacto."}
+
+    try:
+        _abrir_chat_whatsapp(contact)
+        call = _localizar_boton("wa_call.png")
+        if call is None:
+            return {"success": False, "message": "Abrí el chat pero no encontré el botón de llamada. Guarda una captura en assets/wa_call.png."}
+        pyautogui.click(call.x, call.y)
+        return {"success": True, "message": f"Llamando a {contact} por WhatsApp."}
+    except InterruptedError as e:
+        return {"success": False, "message": str(e)}
+    except Exception as e:
+        return {"success": False, "error": str(e), "message": "Falló la llamada por RPA."}
