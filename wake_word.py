@@ -1,75 +1,55 @@
-"""Detección de palabra de activación ("Jarvis") en segundo plano con Porcupine.
+"""Detección de palabra de activación ("Hey Jarvis") en segundo plano.
 
-Porcupine hace la detección de forma OFFLINE: solo el comando que dictas
-DESPUÉS de decir "Jarvis" sale del equipo (para transcribirse). El audio
-ambiente nunca se envía a la nube mientras espera la palabra clave.
+Motor: openWakeWord (https://github.com/dscripka/openWakeWord).
+100% local y OFFLINE, código abierto, SIN cuentas ni claves de acceso.
+Usa el modelo pre-entrenado 'hey_jarvis' y captura el audio con sounddevice.
 
 Requisitos:
-  pip install pvporcupine pvrecorder
-  AccessKey gratis de https://console.picovoice.ai puesto en:
-    - la variable de entorno PICOVOICE_ACCESS_KEY, o
-    - un archivo 'picovoice.key' junto a este módulo (gitignoreado).
+  pip install openwakeword onnxruntime sounddevice numpy
+Los modelos pre-entrenados se descargan solos la primera vez (una única vez).
 """
-import os
 import threading
 
 try:
-    import pvporcupine
-    from pvrecorder import PvRecorder
-    PORCUPINE_AVAILABLE = True
+    import numpy as np
+    import sounddevice as sd
+    import openwakeword
+    from openwakeword.model import Model
+    OPENWAKEWORD_AVAILABLE = True
 except ImportError:
-    PORCUPINE_AVAILABLE = False
+    OPENWAKEWORD_AVAILABLE = False
 
-
-def get_access_key() -> str:
-    """Obtiene el AccessKey de Picovoice desde el entorno o un archivo local."""
-    key = os.environ.get("PICOVOICE_ACCESS_KEY", "").strip()
-    if key:
-        return key
-    base = os.path.dirname(__file__)
-    for name in ("picovoice.key", ".picovoice_key"):
-        path = os.path.join(base, name)
-        if os.path.exists(path):
-            try:
-                with open(path, "r", encoding="utf-8") as f:
-                    return f.read().strip()
-            except Exception:
-                pass
-    return ""
+SAMPLE_RATE = 16000   # openWakeWord trabaja a 16 kHz
+FRAME = 1280          # tamaño de bloque recomendado (80 ms)
 
 
 class WakeWordListener:
-    """Escucha continua de una palabra clave. Llama a on_wake() al detectarla.
+    """Escucha continua de la palabra clave. Llama a on_wake() al detectarla.
 
-    Durante on_wake() se libera el micrófono (se pausa el grabador) para que el
+    Durante on_wake() se libera el micrófono (se pausa el stream) para que el
     resto de la app pueda capturar el comando dictado; luego se reanuda.
     """
 
-    def __init__(self, on_wake, keyword: str = "jarvis", sensitivity: float = 0.5):
+    def __init__(self, on_wake, keyword: str = "hey_jarvis", threshold: float = 0.5):
         self.on_wake = on_wake
         self.keyword = keyword
-        self.sensitivity = sensitivity
+        self.threshold = threshold
         self.error = None
         self._thread = None
         self._running = False
 
     def available(self) -> bool:
-        return PORCUPINE_AVAILABLE and bool(get_access_key())
+        return OPENWAKEWORD_AVAILABLE
 
     def start(self) -> bool:
         if self._running:
             return True
-        if not PORCUPINE_AVAILABLE:
-            self.error = "Faltan librerías: pip install pvporcupine pvrecorder"
-            return False
-        key = get_access_key()
-        if not key:
-            self.error = ("Falta el AccessKey de Picovoice. Ponlo en la variable "
-                          "PICOVOICE_ACCESS_KEY o en el archivo picovoice.key")
+        if not OPENWAKEWORD_AVAILABLE:
+            self.error = "Faltan librerías: pip install openwakeword onnxruntime sounddevice"
             return False
         self.error = None
         self._running = True
-        self._thread = threading.Thread(target=self._loop, args=(key,), daemon=True)
+        self._thread = threading.Thread(target=self._loop, daemon=True)
         self._thread.start()
         return True
 
@@ -79,42 +59,44 @@ class WakeWordListener:
     def is_running(self) -> bool:
         return self._running
 
-    def _loop(self, key: str):
-        porcupine = None
-        recorder = None
+    def _crear_modelo(self):
+        """Crea el modelo; descarga los pesos pre-entrenados si aún no están."""
         try:
-            porcupine = pvporcupine.create(
-                access_key=key,
-                keywords=[self.keyword],
-                sensitivities=[self.sensitivity],
-            )
-            recorder = PvRecorder(frame_length=porcupine.frame_length, device_index=-1)
-            recorder.start()
+            return Model(wakeword_models=[self.keyword], inference_framework="onnx")
+        except Exception:
+            # Primera vez: descargamos los modelos pre-entrenados y reintentamos
+            openwakeword.utils.download_models()
+            return Model(wakeword_models=[self.keyword], inference_framework="onnx")
+
+    def _loop(self):
+        stream = None
+        try:
+            model = self._crear_modelo()
+            stream = sd.InputStream(samplerate=SAMPLE_RATE, channels=1,
+                                    dtype="int16", blocksize=FRAME)
+            stream.start()
             while self._running:
-                pcm = recorder.read()
-                if porcupine.process(pcm) >= 0:
+                data, _ = stream.read(FRAME)
+                audio = np.asarray(data, dtype=np.int16).reshape(-1)
+                prediction = model.predict(audio)
+                if prediction.get(self.keyword, 0.0) > self.threshold:
                     # Detectado: liberamos el micro para capturar el comando
-                    recorder.stop()
+                    stream.stop()
                     try:
                         self.on_wake()
                     except Exception as e:
                         print(f"[WakeWord] error en on_wake: {e}")
                     finally:
                         if self._running:
-                            recorder.start()
+                            stream.start()
         except Exception as e:
             self.error = str(e)
             print(f"[WakeWord] error: {e}")
         finally:
             self._running = False
             try:
-                if recorder is not None:
-                    recorder.stop()
-                    recorder.delete()
-            except Exception:
-                pass
-            try:
-                if porcupine is not None:
-                    porcupine.delete()
+                if stream is not None:
+                    stream.stop()
+                    stream.close()
             except Exception:
                 pass

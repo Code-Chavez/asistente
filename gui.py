@@ -185,7 +185,7 @@ class JarvisGUI(ctk.CTk):
         self.wake_listener = WakeWordListener(on_wake=self._on_wake_word)
         if self.wake_listener.start():
             self.wake_btn.configure(text="👂", fg_color="#1565C0")
-            self.log_message("Sistema", "Modo manos libres activo. Di 'Jarvis' para hablarme.")
+            self.log_message("Sistema", "Modo manos libres activo. Di 'Hey Jarvis' para hablarme.")
         else:
             err = self.wake_listener.error or "No se pudo iniciar la escucha."
             self.wake_listener = None
@@ -193,14 +193,14 @@ class JarvisGUI(ctk.CTk):
 
     def _on_wake_word(self):
         """Se ejecuta (en el hilo del listener) al detectar 'Jarvis'."""
-        self.after(0, lambda: self.log_message("Sistema", "🗣️ 'Jarvis' detectado."))
+        self.after(0, lambda: self.log_message("Sistema", "🗣️ 'Hey Jarvis' detectado."))
         # Acuse de recibo hablado y BLOQUEANTE, para no grabarlo dentro del comando
         self.speak_text("Sí, señor. ¿Qué hacemos?", block=True)
         text = self._grabar_y_transcribir(5)
         if text:
             self.after(0, lambda: self._handle_voice_result(text))
         else:
-            self.after(0, lambda: self.log_message("Sistema", "No capté ningún comando. Di 'Jarvis' otra vez."))
+            self.after(0, lambda: self.log_message("Sistema", "No capté ningún comando. Di 'Hey Jarvis' otra vez."))
 
     def _grabar_y_transcribir(self, seconds: int = 5):
         """Graba una frase corta del micrófono y la transcribe. Devuelve texto o None."""
