@@ -1,0 +1,11 @@
+scikit-learn
+customtkinter
+mss
+Pillow
+SpeechRecognition
+sounddevice
+scipy
+pyttsx3
+youtube-search-python
+pyautogui
+pygetwindow
