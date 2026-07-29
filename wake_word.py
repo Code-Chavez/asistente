@@ -93,6 +93,7 @@ class WakeWordListener:
                                     dtype="int16", blocksize=FRAME)
             stream.start()
             peak = 0.0
+            peak_amp = 0
             last_report = time.time()
             while self._running:
                 data, _ = stream.read(FRAME)
@@ -101,12 +102,15 @@ class WakeWordListener:
                 score = max((prediction.get(k, 0.0) for k in keys), default=0.0)
                 if score > 0.3:  # traza de depuración para calibrar sensibilidad
                     print(f"[WakeWord] score={score:.2f}")
-                # Reporte de pico a la GUI cada ~1.5 s para ver si el micro registra
+                # Reporte a la GUI cada ~1.5 s: nivel del micro (0..32767) y pico de score.
+                # nivel~0 al hablar => problema de micro; nivel alto y pico bajo => modelo.
                 peak = max(peak, score)
+                peak_amp = max(peak_amp, int(np.abs(audio).max()))
                 if time.time() - last_report > 1.5:
-                    self._status(f"micrófono OK · pico 'Hey Jarvis' = {peak:.2f} "
+                    self._status(f"nivel micro={peak_amp} · pico 'Hey Jarvis'={peak:.2f} "
                                  f"(dispara a {self.threshold})")
                     peak = 0.0
+                    peak_amp = 0
                     last_report = time.time()
                 if score > self.threshold:
                     # Detectado: liberamos el micro para capturar el comando
