@@ -29,6 +29,10 @@ notes/*.png
 # ---- Capturas de calibración de botones (personales) ----
 assets/*.png
 
+# ---- Secreto: AccessKey de Picovoice (wake word) ----
+picovoice.key
+.picovoice_key
+
 # ---- IDE / Sistema ----
 .vscode/
 .idea/

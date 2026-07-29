@@ -9,3 +9,5 @@ pyttsx3
 youtube-search-python
 pyautogui
 pygetwindow
+pvporcupine
+pvrecorder
