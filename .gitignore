@@ -26,6 +26,10 @@ notes/*.png
 # ---- Audio temporal ----
 *.wav
 
+# ---- Secreto: AccessKey de Picovoice (wake word) ----
+picovoice.key
+.picovoice_key
+
 # ---- IDE / Sistema ----
 .vscode/
 .idea/

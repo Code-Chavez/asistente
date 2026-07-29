@@ -12,6 +12,8 @@ try:
 except ImportError:
     AUDIO_AVAILABLE = False
 
+from wake_word import WakeWordListener
+
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
@@ -25,6 +27,7 @@ class JarvisGUI(ctk.CTk):
         self.actions = actions or []          # acciones disponibles para corregir
         self.pending_feedback = None          # (action, query) de la última respuesta
         self.correction_query = None          # texto pendiente de corrección tras un 👎
+        self.wake_listener = None             # escucha de palabra clave "Jarvis"
         self.title("Jarvis Assistant")
         self.geometry("700x500")
         # Output console
@@ -43,6 +46,11 @@ class JarvisGUI(ctk.CTk):
                                          font=("Consolas", 16), command=self.start_listening,
                                          fg_color="#333333", hover_color="#555555")
             self.mic_btn.pack(side="left", padx=(0, 5))
+            # Botón de modo manos libres (palabra clave "Jarvis")
+            self.wake_btn = ctk.CTkButton(self.input_frame, text="🗣️", width=40, height=40,
+                                          font=("Consolas", 16), command=self.toggle_wake,
+                                          fg_color="#333333", hover_color="#555555")
+            self.wake_btn.pack(side="left", padx=(0, 5))
         self.btn = ctk.CTkButton(self.input_frame, text="Enviar", command=self.process_input, height=40, font=("Consolas", 14, "bold"))
         self.btn.pack(side="right")
         # Barra de feedback 👍/👎 (solo si hay callback de aprendizaje)
@@ -138,8 +146,12 @@ class JarvisGUI(ctk.CTk):
         self.textbox.yview("end")
         if sender == "Jarvis":
             self.speak_text(message)
-    def speak_text(self, text: str):
-        """Usa pyttsx3 en un hilo separado para que Jarvis hable."""
+    def speak_text(self, text: str, block: bool = False):
+        """Usa pyttsx3 para que Jarvis hable.
+
+        block=True lo ejecuta de forma síncrona (útil antes de grabar un
+        comando, para que la voz de Jarvis no se cuele en la grabación).
+        """
         def run_tts():
             try:
                 # pyrefly: ignore [missing-import]
@@ -157,7 +169,56 @@ class JarvisGUI(ctk.CTk):
                 engine.runAndWait()
             except Exception as e:
                 print(f"Error TTS: {e}")
-        threading.Thread(target=run_tts, daemon=True).start()
+        if block:
+            run_tts()
+        else:
+            threading.Thread(target=run_tts, daemon=True).start()
+
+    def toggle_wake(self):
+        """Activa/desactiva la escucha de la palabra clave 'Jarvis'."""
+        if self.wake_listener and self.wake_listener.is_running():
+            self.wake_listener.stop()
+            self.wake_listener = None
+            self.wake_btn.configure(text="🗣️", fg_color="#333333")
+            self.log_message("Sistema", "Modo manos libres desactivado.")
+            return
+        self.wake_listener = WakeWordListener(on_wake=self._on_wake_word)
+        if self.wake_listener.start():
+            self.wake_btn.configure(text="👂", fg_color="#1565C0")
+            self.log_message("Sistema", "Modo manos libres activo. Di 'Jarvis' para hablarme.")
+        else:
+            err = self.wake_listener.error or "No se pudo iniciar la escucha."
+            self.wake_listener = None
+            self.log_message("Sistema", f"No pude activar manos libres: {err}")
+
+    def _on_wake_word(self):
+        """Se ejecuta (en el hilo del listener) al detectar 'Jarvis'."""
+        self.after(0, lambda: self.log_message("Sistema", "🗣️ 'Jarvis' detectado."))
+        # Acuse de recibo hablado y BLOQUEANTE, para no grabarlo dentro del comando
+        self.speak_text("Sí, señor. ¿Qué hacemos?", block=True)
+        text = self._grabar_y_transcribir(5)
+        if text:
+            self.after(0, lambda: self._handle_voice_result(text))
+        else:
+            self.after(0, lambda: self.log_message("Sistema", "No capté ningún comando. Di 'Jarvis' otra vez."))
+
+    def _grabar_y_transcribir(self, seconds: int = 5):
+        """Graba una frase corta del micrófono y la transcribe. Devuelve texto o None."""
+        if not AUDIO_AVAILABLE:
+            return None
+        try:
+            fs = 44100
+            rec = sd.rec(int(seconds * fs), samplerate=fs, channels=1, dtype='int16')
+            sd.wait()
+            temp_wav = os.path.join(tempfile.gettempdir(), "jarvis_cmd.wav")
+            write(temp_wav, fs, rec)
+            r = sr.Recognizer()
+            with sr.AudioFile(temp_wav) as source:
+                audio = r.record(source)
+            return r.recognize_google(audio, language="es-ES")
+        except Exception:
+            return None
+
     def process_input(self, event=None):
         text = self.entry.get().strip()
         if not text:
