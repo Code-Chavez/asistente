@@ -1,0 +1,33 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ---- Entornos virtuales ----
+.venv/
+venv/
+env/
+
+# ---- Modelo entrenado y logs (se regeneran solos) ----
+agent/model.pkl
+training_log.jsonl
+
+# ---- Datos personales / de sesión (NO subir a GitHub) ----
+agent/chat_history.json
+agent/preferences.json
+
+# ---- Notas y capturas generadas por el asistente ----
+notes/*.txt
+notes/*.png
+
+# ---- Audio temporal ----
+*.wav
+
+# ---- IDE / Sistema ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
