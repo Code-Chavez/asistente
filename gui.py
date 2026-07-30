@@ -28,6 +28,7 @@ class JarvisGUI(ctk.CTk):
         self.pending_feedback = None          # (action, query) de la última respuesta
         self.correction_query = None          # texto pendiente de corrección tras un 👎
         self.wake_listener = None             # escucha de palabra clave "Jarvis"
+        self.last_details = None              # data de la última acción (bajo demanda)
         self.title("Jarvis Assistant")
         self.geometry("700x500")
         # Output console
@@ -187,7 +188,8 @@ class JarvisGUI(ctk.CTk):
             self.log_message("Sistema", "Modo manos libres desactivado.")
             return
         self.wake_listener = WakeWordListener(on_wake=self._on_wake_word,
-                                              on_status=self._on_wake_status)
+                                              on_status=self._on_wake_status,
+                                              on_stopped=self._on_wake_stopped)
         if self.wake_listener.start():
             self.wake_btn.configure(text="👂", fg_color="#1565C0")
             self.log_message("Sistema", "Modo manos libres activo. Di 'Hey Jarvis' para hablarme.")
@@ -201,6 +203,22 @@ class JarvisGUI(ctk.CTk):
     def _on_wake_status(self, msg: str):
         """Muestra en vivo el estado/pico del wake word (llamado desde el listener)."""
         self.after(0, lambda: self.wake_status_label.configure(text=f"🎙️ {msg}"))
+
+    def _on_wake_stopped(self, error):
+        """El hilo de escucha terminó: reflejarlo en la GUI (antes moría en silencio)."""
+        def update():
+            # Si fue el usuario quien lo apagó, toggle_wake ya limpió todo.
+            if self.wake_listener is None:
+                return
+            self.wake_listener = None
+            self.wake_btn.configure(text="🗣️", fg_color="#333333")
+            self.wake_status_label.configure(text="")
+            if error:
+                self.log_message("Sistema", f"⚠️ La escucha 'Hey Jarvis' se detuvo por un error: {error}. "
+                                            "Pulsa 🗣️ para reactivarla.")
+            else:
+                self.log_message("Sistema", "La escucha 'Hey Jarvis' se detuvo. Pulsa 🗣️ para reactivarla.")
+        self.after(0, update)
 
     def _on_wake_word(self):
         """Se ejecuta (en el hilo del listener) al detectar 'Jarvis'."""
@@ -293,6 +311,12 @@ class JarvisGUI(ctk.CTk):
         self.log_message("Usuario (Voz)", text)
         threading.Thread(target=self._process_command, args=(text,), daemon=True).start()
     def _process_command(self, text: str):
+        # Detalles bajo demanda: "dame los detalles", "muestra los detalles", etc.
+        if "detalle" in text.lower():
+            det = getattr(self, "last_details", None)
+            msg = f"Detalles de la última acción: {det}" if det else "No tengo detalles de la última acción."
+            self.after(0, lambda: self.log_message("Jarvis", msg))
+            return
         if self.feedback_callback:
             self.pending_feedback = None
             self.after(0, self._hide_correction)
@@ -308,10 +332,9 @@ class JarvisGUI(ctk.CTk):
             else:
                 err = res_data.get("error", "Error desconocido")
                 msg = f"Falló al ejecutar [{action}]: {err}"
-        # Detalles adicionales
-        data = res_data.get("data", {})
-        if data:
-            msg += f"\nDetalles: {data}"
+        # Los detalles ya no se muestran automáticamente: se guardan y se
+        # consultan diciendo "dame los detalles".
+        self.last_details = res_data.get("data", {}) or None
         self.after(0, lambda: self.log_message("Jarvis", msg))
         # Habilitamos el feedback para esta acción concreta
         if self.feedback_callback and action and action != "Desconocido":

@@ -34,11 +34,12 @@ class WakeWordListener:
     """
 
     def __init__(self, on_wake, keyword: str = "hey_jarvis", threshold: float = 0.4,
-                 on_status=None):
+                 on_status=None, on_stopped=None):
         self.on_wake = on_wake
         self.keyword = keyword
         self.threshold = threshold
-        self.on_status = on_status   # callback opcional para reportar estado/score
+        self.on_status = on_status    # callback opcional para reportar estado/score
+        self.on_stopped = on_stopped  # callback cuando la escucha muere (avisar a la GUI)
         self.error = None
         self._thread = None
         self._running = False
@@ -150,3 +151,10 @@ class WakeWordListener:
                     stream.close()
             except Exception:
                 pass
+            # Avisamos SIEMPRE a la GUI de que la escucha terminó (con o sin error),
+            # para que no se quede el botón en 'escuchando' con el hilo muerto.
+            if self.on_stopped:
+                try:
+                    self.on_stopped(self.error)
+                except Exception:
+                    pass
