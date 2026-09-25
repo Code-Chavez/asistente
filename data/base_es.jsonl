@@ -25,12 +25,14 @@
 {"q": "apunta esto por favor", "expected_action": "crear_nota"}
 {"q": "nueva nota", "expected_action": "crear_nota"}
 {"q": "escribe un recordatorio", "expected_action": "crear_nota"}
-{"q": "abre el explorador", "expected_action": "abrir_app"}
-{"q": "inicia la calculadora", "expected_action": "abrir_app"}
-{"q": "ejecuta notepad", "expected_action": "abrir_app"}
-{"q": "abre la calculadora", "expected_action": "abrir_app"}
-{"q": "abre el bloc de notas", "expected_action": "abrir_app"}
-{"q": "abre paint", "expected_action": "abrir_app"}
+{"q": "abre el explorador", "expected_action": "abrir_aplicacion"}
+{"q": "inicia la calculadora", "expected_action": "abrir_aplicacion"}
+{"q": "ejecuta notepad", "expected_action": "abrir_aplicacion"}
+{"q": "abre la calculadora", "expected_action": "abrir_aplicacion"}
+{"q": "abre el bloc de notas", "expected_action": "abrir_aplicacion"}
+{"q": "abre paint", "expected_action": "abrir_aplicacion"}
+{"q": "abre spotify", "expected_action": "abrir_aplicacion"}
+{"q": "abre chrome", "expected_action": "abrir_aplicacion"}
 {"q": "envia un whatsapp a maria hola", "expected_action": "enviar_whatsapp"}
 {"q": "mandale un mensaje por whatsapp a carlos", "expected_action": "enviar_whatsapp"}
 {"q": "whatsapp a mama diciendo llego tarde", "expected_action": "enviar_whatsapp"}
@@ -42,10 +44,29 @@
 {"q": "crea un documento de word", "expected_action": "crear_documento"}
 {"q": "nuevo archivo de texto", "expected_action": "crear_documento"}
 {"q": "escribir carta documento", "expected_action": "crear_documento"}
-{"q": "mira mi pantalla", "expected_action": "analizar_pantalla"}
-{"q": "que ves en mi pantalla", "expected_action": "analizar_pantalla"}
-{"q": "toma una captura", "expected_action": "analizar_pantalla"}
-{"q": "dime que hay aqui", "expected_action": "analizar_pantalla"}
+{"q": "mira mi pantalla", "expected_action": "describir_pantalla"}
+{"q": "que ves en mi pantalla", "expected_action": "describir_pantalla"}
+{"q": "dime que hay aqui", "expected_action": "describir_pantalla"}
+{"q": "que esta pasando en mi pantalla", "expected_action": "describir_pantalla"}
+{"q": "analiza lo que estoy viendo", "expected_action": "describir_pantalla"}
+{"q": "toma una captura", "expected_action": "capturar_pantalla"}
+{"q": "haz un pantallazo", "expected_action": "capturar_pantalla"}
+{"q": "captura la pantalla", "expected_action": "capturar_pantalla"}
+{"q": "hazme un screenshot", "expected_action": "capturar_pantalla"}
+{"q": "guarda una captura de esto", "expected_action": "capturar_pantalla"}
+{"q": "sube el volumen", "expected_action": "control_volumen"}
+{"q": "baja un poco el volumen", "expected_action": "control_volumen"}
+{"q": "silencia el sonido", "expected_action": "control_volumen"}
+{"q": "pon el volumen mas alto", "expected_action": "control_volumen"}
+{"q": "mute el audio", "expected_action": "control_volumen"}
+{"q": "bloquea la pantalla", "expected_action": "bloquear_pantalla"}
+{"q": "bloquea el pc", "expected_action": "bloquear_pantalla"}
+{"q": "bloquea la computadora que ya me voy", "expected_action": "bloquear_pantalla"}
+{"q": "cierra sesion y bloquea", "expected_action": "bloquear_pantalla"}
+{"q": "minimiza todo", "expected_action": "minimizar_ventanas"}
+{"q": "minimiza las ventanas", "expected_action": "minimizar_ventanas"}
+{"q": "muestra el escritorio", "expected_action": "minimizar_ventanas"}
+{"q": "quita todas las ventanas de en medio", "expected_action": "minimizar_ventanas"}
 {"q": "cancela", "expected_action": "cancelar_accion"}
 {"q": "detente", "expected_action": "cancelar_accion"}
 {"q": "para la automatizacion", "expected_action": "cancelar_accion"}

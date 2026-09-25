@@ -1,7 +1,10 @@
 import os
 import sys
 from agent import SkillRouter
-from skills import buscar_web, buscar_youtube, crear_nota, abrir_app, enviar_whatsapp, abrir_excel, crear_documento, analizar_pantalla, cancelar_accion, seleccionar_opcion, controlar_pantalla, enviar_nota_voz, llamar_whatsapp, grabar_audio
+from skills import (buscar_web, buscar_youtube, crear_nota, abrir_aplicacion, enviar_whatsapp, abrir_excel,
+                    crear_documento, capturar_pantalla, describir_pantalla, cancelar_accion, seleccionar_opcion,
+                    controlar_pantalla, enviar_nota_voz, llamar_whatsapp, grabar_audio, control_volumen,
+                    bloquear_pantalla, minimizar_ventanas)
 from skills.windows import describir_enviar_whatsapp, describir_llamar_whatsapp, describir_enviar_nota_voz
 from skills.charla import ninguna
 from agent.datasets import training_examples
@@ -17,15 +20,19 @@ def main():
     router.register_skill("seleccionar_opcion", seleccionar_opcion)
     router.register_skill("controlar_pantalla", controlar_pantalla)
     router.register_skill("crear_nota", crear_nota)
-    router.register_skill("abrir_app", abrir_app)
+    router.register_skill("abrir_aplicacion", abrir_aplicacion)
     router.register_skill("enviar_whatsapp", enviar_whatsapp, confirm=describir_enviar_whatsapp)
     router.register_skill("abrir_excel", abrir_excel)
     router.register_skill("crear_documento", crear_documento)
-    router.register_skill("analizar_pantalla", analizar_pantalla)
+    router.register_skill("capturar_pantalla", capturar_pantalla)
+    router.register_skill("describir_pantalla", describir_pantalla)
     router.register_skill("cancelar_accion", cancelar_accion)
     router.register_skill("grabar_audio", grabar_audio)
     router.register_skill("enviar_nota_voz", enviar_nota_voz, confirm=describir_enviar_nota_voz)
     router.register_skill("llamar_whatsapp", llamar_whatsapp, confirm=describir_llamar_whatsapp)
+    router.register_skill("control_volumen", control_volumen)
+    router.register_skill("bloquear_pantalla", bloquear_pantalla)
+    router.register_skill("minimizar_ventanas", minimizar_ventanas)
     # "No es un comando": saludos, charla, cosas que Jarvis no sabe hacer
     router.register_skill("ninguna", ninguna)
     

@@ -254,19 +254,35 @@ def crear_nota(ctx: Dict[str, Any]) -> Dict[str, Any]:
         return {"success": False, "error": str(e), "data": {"path": path}}
 
 
-def abrir_app(ctx: Dict[str, Any]) -> Dict[str, Any]:
+# Palabras clave -> ejecutable a resolver vía 'start' (PATH / registro de apps).
+# Orden importa: se usa la primera coincidencia, así que lo más específico va primero.
+APP_KEYWORDS = [
+    (("calculadora", "calc"), "calc"),
+    (("explorador", "archivos"), "explorer"),
+    (("cmd", "consola", "terminal"), "cmd"),
+    (("bloc de notas", "notepad"), "notepad"),
+    (("paint",), "mspaint"),
+    (("spotify",), "spotify"),
+    (("chrome",), "chrome"),
+    (("brave",), "brave"),
+    (("edge",), "msedge"),
+    (("firefox",), "firefox"),
+    (("discord",), "discord"),
+    (("telegram",), "telegram"),
+    (("configuracion", "configuración", "ajustes"), "ms-settings:"),
+]
+
+
+def abrir_aplicacion(ctx: Dict[str, Any]) -> Dict[str, Any]:
     q = ctx.get("q", "").lower()
-    app = ctx.get("app", "notepad")
-    
-    if "calculadora" in q or "calc" in q:
-        app = "calc"
-    elif "explorador" in q or "archivos" in q:
-        app = "explorer"
-    elif "cmd" in q or "consola" in q or "terminal" in q:
-        app = "cmd"
-    elif "paint" in q:
-        app = "mspaint"
-        
+    app = ctx.get("app")
+    if not app:
+        app = "notepad"  # si no reconocemos ninguna app, abrimos algo inofensivo
+        for palabras, ejecutable in APP_KEYWORDS:
+            if any(p in q for p in palabras):
+                app = ejecutable
+                break
+
     dry = bool(ctx.get("dry_run", False))
     if dry:
         return {"success": True, "data": {"app": app}}
@@ -275,6 +291,58 @@ def abrir_app(ctx: Dict[str, Any]) -> Dict[str, Any]:
         return {"success": True, "data": {"app": app}, "message": f"He abierto {app}."}
     except Exception as e:
         return {"success": False, "error": str(e), "data": {"app": app}}
+
+
+def control_volumen(ctx: Dict[str, Any]) -> Dict[str, Any]:
+    q = ctx.get("q", "").lower()
+    dry = bool(ctx.get("dry_run", False))
+
+    if "silenci" in q or "mute" in q or "sin sonido" in q or "quita el audio" in q:
+        accion, tecla, msg = "silenciar", "volumemute", "He silenciado el volumen."
+    elif "baja" in q or "menos volumen" in q or "quita volumen" in q:
+        accion, tecla, msg = "bajar", "volumedown", "He bajado el volumen."
+    elif "sube" in q or "más volumen" in q or "mas volumen" in q or "alto" in q:
+        accion, tecla, msg = "subir", "volumeup", "He subido el volumen."
+    else:
+        return {"success": False, "message": "¿Subo, bajo o silencio el volumen?"}
+
+    if dry:
+        return {"success": True, "data": {"accion": accion}}
+    if not PYAUTOGUI_AVAILABLE:
+        return {"success": False, "message": "Falta pyautogui para controlar el volumen."}
+    try:
+        repeticiones = 1 if accion == "silenciar" else 5
+        for _ in range(repeticiones):
+            pyautogui.press(tecla)
+        return {"success": True, "data": {"accion": accion}, "message": msg}
+    except Exception as e:
+        return {"success": False, "error": str(e), "message": f"Falló el control de volumen: {e}"}
+
+
+def bloquear_pantalla(ctx: Dict[str, Any]) -> Dict[str, Any]:
+    dry = bool(ctx.get("dry_run", False))
+    if dry:
+        return {"success": True}
+    try:
+        import ctypes
+        ctypes.windll.user32.LockWorkStation()  # type: ignore[attr-defined]
+        return {"success": True, "message": "Pantalla bloqueada."}
+    except Exception as e:
+        return {"success": False, "error": str(e), "message": "No pude bloquear la pantalla (¿estás en Windows?)."}
+
+
+def minimizar_ventanas(ctx: Dict[str, Any]) -> Dict[str, Any]:
+    dry = bool(ctx.get("dry_run", False))
+    if not PYAUTOGUI_AVAILABLE and not dry:
+        return {"success": False, "message": "Falta pyautogui para minimizar las ventanas."}
+    if dry:
+        return {"success": True}
+    try:
+        pyautogui.hotkey('win', 'd')
+        return {"success": True, "message": "Ventanas minimizadas."}
+    except Exception as e:
+        return {"success": False, "error": str(e), "message": "No pude minimizar las ventanas."}
+
 
 def abrir_excel(ctx: Dict[str, Any]) -> Dict[str, Any]:
     dry = bool(ctx.get("dry_run", False))
