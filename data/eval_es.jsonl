@@ -1,0 +1,79 @@
+{"q": "busca el precio del bitcoin", "expected_action": "buscar_web"}
+{"q": "como esta el clima en lima", "expected_action": "buscar_web"}
+{"q": "quien invento la bombilla", "expected_action": "buscar_web"}
+{"q": "googlea que es la fotosintesis", "expected_action": "buscar_web"}
+{"q": "noticias de futbol de hoy", "expected_action": "buscar_web"}
+{"q": "cuanto mide la torre eiffel", "expected_action": "buscar_web"}
+{"q": "pon musica de bad bunny en youtube", "expected_action": "buscar_youtube"}
+{"q": "quiero ver un tutorial de excel en youtube", "expected_action": "buscar_youtube"}
+{"q": "ponme la cancion de shakira", "expected_action": "buscar_youtube"}
+{"q": "reproduce musica relajante", "expected_action": "buscar_youtube"}
+{"q": "busca videos de gatos graciosos en youtube", "expected_action": "buscar_youtube"}
+{"q": "el segundo", "expected_action": "seleccionar_opcion"}
+{"q": "pon el primero", "expected_action": "seleccionar_opcion"}
+{"q": "quiero la opcion tres", "expected_action": "seleccionar_opcion"}
+{"q": "el ultimo no, el primero", "expected_action": "seleccionar_opcion"}
+{"q": "reproduce el numero 2", "expected_action": "seleccionar_opcion"}
+{"q": "baja", "expected_action": "controlar_pantalla"}
+{"q": "sube un poco la pagina", "expected_action": "controlar_pantalla"}
+{"q": "pausa", "expected_action": "controlar_pantalla"}
+{"q": "cierra esta pestaña", "expected_action": "controlar_pantalla"}
+{"q": "haz scroll hacia abajo", "expected_action": "controlar_pantalla"}
+{"q": "apunta que manana hay reunion", "expected_action": "crear_nota"}
+{"q": "anota comprar leche", "expected_action": "crear_nota"}
+{"q": "crea una nota con la lista de tareas", "expected_action": "crear_nota"}
+{"q": "guarda una nota que diga llamar al banco", "expected_action": "crear_nota"}
+{"q": "toma nota de esto", "expected_action": "crear_nota"}
+{"q": "abre la calculadora por favor", "expected_action": "abrir_app"}
+{"q": "abre el cmd", "expected_action": "abrir_app"}
+{"q": "abre la terminal", "expected_action": "abrir_app"}
+{"q": "lanza el explorador de archivos", "expected_action": "abrir_app"}
+{"q": "abre el paint para dibujar", "expected_action": "abrir_app"}
+{"q": "manda un whatsapp a pedro diciendo hola", "expected_action": "enviar_whatsapp"}
+{"q": "escribele a lucia por whatsapp que ya voy", "expected_action": "enviar_whatsapp"}
+{"q": "envia un mensaje a juan que llego en 5", "expected_action": "enviar_whatsapp"}
+{"q": "dile a mi hermano por whatsapp que me llame", "expected_action": "enviar_whatsapp"}
+{"q": "whatsapp a ana diciendo feliz cumpleanos", "expected_action": "enviar_whatsapp"}
+{"q": "abre excel", "expected_action": "abrir_excel"}
+{"q": "necesito una hoja de calculo", "expected_action": "abrir_excel"}
+{"q": "crea una hoja de excel nueva", "expected_action": "abrir_excel"}
+{"q": "abre excel para hacer un presupuesto", "expected_action": "abrir_excel"}
+{"q": "abre word", "expected_action": "crear_documento"}
+{"q": "crea un documento nuevo", "expected_action": "crear_documento"}
+{"q": "quiero escribir un documento en word", "expected_action": "crear_documento"}
+{"q": "nuevo documento de texto", "expected_action": "crear_documento"}
+{"q": "que hay en mi pantalla", "expected_action": "analizar_pantalla"}
+{"q": "analiza lo que estoy viendo", "expected_action": "analizar_pantalla"}
+{"q": "haz una captura de pantalla", "expected_action": "analizar_pantalla"}
+{"q": "mira esto y dime que es", "expected_action": "analizar_pantalla"}
+{"q": "que ves", "expected_action": "analizar_pantalla"}
+{"q": "cancela eso", "expected_action": "cancelar_accion"}
+{"q": "para ya", "expected_action": "cancelar_accion"}
+{"q": "deten todo", "expected_action": "cancelar_accion"}
+{"q": "aborta", "expected_action": "cancelar_accion"}
+{"q": "cancela la accion", "expected_action": "cancelar_accion"}
+{"q": "graba 5 segundos", "expected_action": "grabar_audio"}
+{"q": "grabame un audio de 20 segundos", "expected_action": "grabar_audio"}
+{"q": "empieza a grabar", "expected_action": "grabar_audio"}
+{"q": "graba lo que digo", "expected_action": "grabar_audio"}
+{"q": "haz una grabacion de voz", "expected_action": "grabar_audio"}
+{"q": "envia nota de voz a luis", "expected_action": "enviar_nota_voz"}
+{"q": "mandale un audio por whatsapp a sofia", "expected_action": "enviar_nota_voz"}
+{"q": "graba y envia una nota de voz a mama", "expected_action": "enviar_nota_voz"}
+{"q": "nota de voz para carlos por whatsapp", "expected_action": "enviar_nota_voz"}
+{"q": "llama a mama", "expected_action": "llamar_whatsapp"}
+{"q": "haz una llamada por whatsapp a pedro", "expected_action": "llamar_whatsapp"}
+{"q": "llamale a lucia", "expected_action": "llamar_whatsapp"}
+{"q": "quiero llamar a mi hermano por whatsapp", "expected_action": "llamar_whatsapp"}
+{"q": "hey que tal jarvis", "expected_action": "ninguna"}
+{"q": "gracias por todo", "expected_action": "ninguna"}
+{"q": "como te va", "expected_action": "ninguna"}
+{"q": "que hora es", "expected_action": "ninguna"}
+{"q": "dime algo gracioso", "expected_action": "ninguna"}
+{"q": "buenas noches", "expected_action": "ninguna"}
+{"q": "eres un crack", "expected_action": "ninguna"}
+{"q": "que opinas de la vida", "expected_action": "ninguna"}
+{"q": "borra todo", "expected_action": "ninguna"}
+{"q": "enciende la luz del salon", "expected_action": "ninguna"}
+{"q": "pideme una pizza", "expected_action": "ninguna"}
+{"q": "pon una alarma a las 7", "expected_action": "ninguna"}

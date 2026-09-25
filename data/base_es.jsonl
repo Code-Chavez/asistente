@@ -1,0 +1,74 @@
+{"q": "clima hoy", "expected_action": "buscar_web"}
+{"q": "busca en google el clima", "expected_action": "buscar_web"}
+{"q": "que temperatura hace hoy", "expected_action": "buscar_web"}
+{"q": "que tiempo va a hacer manana", "expected_action": "buscar_web"}
+{"q": "investiga sobre inteligencia artificial", "expected_action": "buscar_web"}
+{"q": "busca imagenes de gatos", "expected_action": "buscar_web"}
+{"q": "dime sobre la revolucion francesa", "expected_action": "buscar_web"}
+{"q": "cuanto cuesta el dolar hoy", "expected_action": "buscar_web"}
+{"q": "buscame recetas de pizza", "expected_action": "buscar_web"}
+{"q": "quien gano el partido de ayer", "expected_action": "buscar_web"}
+{"q": "pon en youtube un video de risa", "expected_action": "buscar_youtube"}
+{"q": "reproduce la cancion despacito en youtube", "expected_action": "buscar_youtube"}
+{"q": "busca en youtube tutorial de python", "expected_action": "buscar_youtube"}
+{"q": "pon a coldplay", "expected_action": "buscar_youtube"}
+{"q": "el primero", "expected_action": "seleccionar_opcion"}
+{"q": "reproduce el segundo", "expected_action": "seleccionar_opcion"}
+{"q": "la opcion 1", "expected_action": "seleccionar_opcion"}
+{"q": "el tercer video", "expected_action": "seleccionar_opcion"}
+{"q": "baja un poco", "expected_action": "controlar_pantalla"}
+{"q": "sube la pantalla", "expected_action": "controlar_pantalla"}
+{"q": "pausa el video", "expected_action": "controlar_pantalla"}
+{"q": "cierra la pestaña", "expected_action": "controlar_pantalla"}
+{"q": "escrol para abajo", "expected_action": "controlar_pantalla"}
+{"q": "crea una nota importante", "expected_action": "crear_nota"}
+{"q": "apunta esto por favor", "expected_action": "crear_nota"}
+{"q": "nueva nota", "expected_action": "crear_nota"}
+{"q": "escribe un recordatorio", "expected_action": "crear_nota"}
+{"q": "abre el explorador", "expected_action": "abrir_app"}
+{"q": "inicia la calculadora", "expected_action": "abrir_app"}
+{"q": "ejecuta notepad", "expected_action": "abrir_app"}
+{"q": "abre la calculadora", "expected_action": "abrir_app"}
+{"q": "abre el bloc de notas", "expected_action": "abrir_app"}
+{"q": "abre paint", "expected_action": "abrir_app"}
+{"q": "envia un whatsapp a maria hola", "expected_action": "enviar_whatsapp"}
+{"q": "mandale un mensaje por whatsapp a carlos", "expected_action": "enviar_whatsapp"}
+{"q": "whatsapp a mama diciendo llego tarde", "expected_action": "enviar_whatsapp"}
+{"q": "abre whatsapp", "expected_action": "enviar_whatsapp"}
+{"q": "abre whatsaapp", "expected_action": "enviar_whatsapp"}
+{"q": "abre un excel", "expected_action": "abrir_excel"}
+{"q": "nueva hoja de calculo", "expected_action": "abrir_excel"}
+{"q": "crea un excel para cuentas", "expected_action": "abrir_excel"}
+{"q": "crea un documento de word", "expected_action": "crear_documento"}
+{"q": "nuevo archivo de texto", "expected_action": "crear_documento"}
+{"q": "escribir carta documento", "expected_action": "crear_documento"}
+{"q": "mira mi pantalla", "expected_action": "analizar_pantalla"}
+{"q": "que ves en mi pantalla", "expected_action": "analizar_pantalla"}
+{"q": "toma una captura", "expected_action": "analizar_pantalla"}
+{"q": "dime que hay aqui", "expected_action": "analizar_pantalla"}
+{"q": "cancela", "expected_action": "cancelar_accion"}
+{"q": "detente", "expected_action": "cancelar_accion"}
+{"q": "para la automatizacion", "expected_action": "cancelar_accion"}
+{"q": "abortar mision", "expected_action": "cancelar_accion"}
+{"q": "graba un audio", "expected_action": "grabar_audio"}
+{"q": "graba una nota de voz de 10 segundos", "expected_action": "grabar_audio"}
+{"q": "grabame un memo de voz", "expected_action": "grabar_audio"}
+{"q": "empieza a grabar audio", "expected_action": "grabar_audio"}
+{"q": "manda una nota de voz a maria por whatsapp", "expected_action": "enviar_nota_voz"}
+{"q": "envia un audio de whatsapp a carlos", "expected_action": "enviar_nota_voz"}
+{"q": "grabale una nota de voz a mama por whatsapp", "expected_action": "enviar_nota_voz"}
+{"q": "llama a carlos por whatsapp", "expected_action": "llamar_whatsapp"}
+{"q": "hazle una llamada a maria", "expected_action": "llamar_whatsapp"}
+{"q": "llamada de voz a papa por whatsapp", "expected_action": "llamar_whatsapp"}
+{"q": "hola", "expected_action": "ninguna"}
+{"q": "hola jarvis", "expected_action": "ninguna"}
+{"q": "buenos dias", "expected_action": "ninguna"}
+{"q": "gracias", "expected_action": "ninguna"}
+{"q": "muchas gracias", "expected_action": "ninguna"}
+{"q": "como estas", "expected_action": "ninguna"}
+{"q": "que tal todo", "expected_action": "ninguna"}
+{"q": "cuentame un chiste", "expected_action": "ninguna"}
+{"q": "eres muy listo", "expected_action": "ninguna"}
+{"q": "adios jarvis", "expected_action": "ninguna"}
+{"q": "nada olvidalo", "expected_action": "ninguna"}
+{"q": "te quiero", "expected_action": "ninguna"}

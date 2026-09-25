@@ -4,18 +4,18 @@ import time
 import random
 import webbrowser
 import subprocess
-from typing import Dict, Any
+from typing import Dict, Any, Optional, Tuple
 
 try:
     import pyautogui
     PYAUTOGUI_AVAILABLE = True
-except ImportError:
+except Exception:  # sin pantalla (p.ej. CI en Linux) falla con KeyError, no ImportError
     PYAUTOGUI_AVAILABLE = False
 
 try:
     import pygetwindow as gw
     PYGETWINDOW_AVAILABLE = True
-except ImportError:
+except Exception:
     PYGETWINDOW_AVAILABLE = False
 
 CANCEL_FLAG = False
@@ -296,69 +296,97 @@ def crear_documento(ctx: Dict[str, Any]) -> Dict[str, Any]:
     except Exception as e:
         return {"success": False, "error": str(e), "message": "No se pudo abrir Word."}
 
-def parse_whatsapp_command(q_original: str) -> tuple[str, str]:
+# "por whatsapp", "de whatsapp", "en wasap"... no forman parte del contacto.
+_PLATAFORMA_WA = re.compile(r"\s+(?:por|de|en|via|vía)\s+(?:whatsapp|whatsaap|wasap|wassap|whats)\b",
+                            re.IGNORECASE)
+
+# Google Speech-to-Text suele usar la escritura en inglés para ciertos nombres.
+CORRECCIONES_NOMBRES = {
+    "Christopher": "Cristofer",
+    "Cristopher": "Cristofer",
+    "Jon": "John",
+    "Brainy": "Brayni",
+}
+
+
+def _primer_marcador(texto: str, marcadores) -> Optional[Tuple[int, str]]:
+    """(posición, marcador) del marcador que aparece ANTES en el texto.
+
+    A igual posición gana el más largo (" dile que " frente a " dile ").
+    """
+    mejor = None
+    for m in marcadores:
+        i = texto.find(m)
+        if i != -1 and (mejor is None or i < mejor[0] or (i == mejor[0] and len(m) > len(mejor[1]))):
+            mejor = (i, m)
+    return mejor
+
+
+def parse_whatsapp_command(q_original: str) -> Tuple[str, str]:
     """
     NLP rudimentario usando patrones de conectores.
     Extrae el contacto y el mensaje de una frase, preservando mayúsculas.
     """
-    q_low = f" {q_original.lower()} "
-    q_orig = f" {q_original} "
-    
-    # Conectores para identificar el contacto (ordenados de más largo a más corto)
+    q_orig = f" {_PLATAFORMA_WA.sub('', q_original).strip()} "
+    q_low = q_orig.lower()
+
+    # Conectores para identificar el contacto y el mensaje. Se usa el que
+    # aparece primero en la frase (no el primero de la lista): así en
+    # "manda a maria que compre pan para la cena" el contacto es "maria".
     contact_markers = [" a quien ", " para ", " busca a ", " busca ", " a "]
-    
-    # Conectores para identificar el mensaje
-    msg_markers = [" diciendo que ", " diciendo ", " y dile que ", " y dile ", 
+    msg_markers = [" diciendo que ", " diciendo ", " y dile que ", " y dile ",
                    " que diga ", " dile que ", " dile ", " que ", " como ", " el mensaje "]
-    
+
     contact = ""
     message = ""
-    
-    start_contact_idx = -1
-    for marker in contact_markers:
-        if marker in q_low:
-            start_contact_idx = q_low.find(marker) + len(marker)
-            break
-            
-    if start_contact_idx != -1:
+
+    found = _primer_marcador(q_low, contact_markers)
+    if found:
+        start_contact_idx = found[0] + len(found[1])
         resto_low = q_low[start_contact_idx:]
         resto_orig = q_orig[start_contact_idx:]
-        
-        start_msg_idx = -1
-        for marker in msg_markers:
-            if marker in resto_low:
-                start_msg_idx = resto_low.find(marker)
-                message = resto_orig[start_msg_idx + len(marker):].strip()
-                contact = resto_orig[:start_msg_idx].strip()
-                break
-                
-        if start_msg_idx == -1:
+
+        msg = _primer_marcador(resto_low, msg_markers)
+        if msg:
+            message = resto_orig[msg[0] + len(msg[1]):].strip()
+            contact = resto_orig[:msg[0]].strip()
+        else:
             contact = resto_orig.strip()
-            
+
     # Limpiar contacto de palabras sueltas si es muy largo
-    if contact:
-        cw = contact.split()
-        if len(cw) > 3:
-            contact = " ".join(cw[:3]) # asume máximo 3 palabras para un contacto
-            
-    # 1. Aplicar título (Mayúsculas)
-    contact = contact.title()
+    cw = contact.split()[:3]  # asume máximo 3 palabras para un contacto
+
+    # Mayúsculas + corrección fonética de nombres, palabra a palabra
+    # (reemplazar subcadenas convertía "Jonathan" en "Johnathan").
+    contact = " ".join(CORRECCIONES_NOMBRES.get(w.title(), w.title()) for w in cw)
     if message:
         message = message[0].upper() + message[1:]
-        
-    # 2. Corrección fonética manual de nombres (Alias)
-    # Google Speech-to-Text suele usar la escritura en inglés para ciertos nombres.
-    correcciones_nombres = {
-        "Christopher": "Cristofer",
-        "Cristopher": "Cristofer",
-        "Jon": "John",
-        "Brainy": "Brayni"
-    }
-    
-    for mal_escrito, bien_escrito in correcciones_nombres.items():
-        contact = contact.replace(mal_escrito, bien_escrito)
-            
+
     return contact.strip(), message.strip()
+
+
+def describir_enviar_whatsapp(ctx: Dict[str, Any]) -> Optional[str]:
+    """Texto de confirmación, o None si el skill no va a enviar nada."""
+    contact, message = parse_whatsapp_command(ctx.get("q", ""))
+    if not contact or not message:
+        return None  # solo abre WhatsApp o pide el mensaje: nada que confirmar
+    return f"Voy a enviar un WhatsApp a «{contact}» con el mensaje: «{message}»."
+
+
+def describir_llamar_whatsapp(ctx: Dict[str, Any]) -> Optional[str]:
+    contact, _ = parse_whatsapp_command(ctx.get("q", ""))
+    if not contact:
+        return None  # el skill preguntará a quién llamar
+    return f"Voy a llamar a «{contact}» por WhatsApp."
+
+
+def describir_enviar_nota_voz(ctx: Dict[str, Any]) -> Optional[str]:
+    q = ctx.get("q", "")
+    contact, _ = parse_whatsapp_command(q)
+    if not contact:
+        return None  # el skill preguntará a quién enviarla
+    return f"Voy a grabar una nota de voz de ~{_dur_segundos(q)} s y enviarla a «{contact}»."
+
 
 def enviar_whatsapp(ctx: Dict[str, Any]) -> Dict[str, Any]:
     global CANCEL_FLAG
@@ -373,7 +401,12 @@ def enviar_whatsapp(ctx: Dict[str, Any]) -> Dict[str, Any]:
     contact, message = parse_whatsapp_command(q_original)
 
     if dry: return {"success": True}
-    
+
+    # Con contacto pero sin mensaje NO enviamos un texto inventado: preguntamos.
+    if contact and not message:
+        return {"success": False,
+                "message": f"¿Qué le digo a {contact}? Por ejemplo: 'whatsapp a {contact} diciendo hola'."}
+
     try:
         subprocess.Popen("start whatsapp:", shell=True)
         safe_sleep(6.0) # Tiempo generoso para que abra WhatsApp Desktop
@@ -393,9 +426,6 @@ def enviar_whatsapp(ctx: Dict[str, Any]) -> Dict[str, Any]:
         safe_sleep(1.5)
         
         # Escribir mensaje
-        if not message:
-            message = "Hola, este es un mensaje automatizado enviado por Jarvis."
-            
         pyautogui.write(message, interval=0.03)
         safe_sleep(1.0)
         
@@ -478,10 +508,12 @@ def enviar_nota_voz(ctx: Dict[str, Any]) -> Dict[str, Any]:
     if not PYAUTOGUI_AVAILABLE:
         return {"success": False, "message": "Falta pyautogui para grabar notas de voz por RPA."}
 
+    contact, _ = parse_whatsapp_command(q_original)
+    if not contact:
+        return {"success": False, "message": "¿A quién envío la nota de voz? No detecté el contacto."}
+
     if not os.path.exists(os.path.join(_assets_dir(), "wa_mic.png")):
         return {"success": False, "message": "Para notas de voz necesito una captura del botón del micrófono en assets/wa_mic.png."}
-
-    contact, _ = parse_whatsapp_command(q_original)
     try:
         _abrir_chat_whatsapp(contact)
         mic = _localizar_boton("wa_mic.png")
@@ -496,8 +528,7 @@ def enviar_nota_voz(ctx: Dict[str, Any]) -> Dict[str, Any]:
         send = _localizar_boton("wa_send.png")
         if send is not None:
             pyautogui.click(send.x, send.y)
-        destino = contact or "el chat abierto"
-        return {"success": True, "message": f"Nota de voz de ~{seconds}s enviada a {destino}."}
+        return {"success": True, "message": f"Nota de voz de ~{seconds}s enviada a {contact}."}
     except InterruptedError as e:
         return {"success": False, "message": str(e)}
     except Exception as e:

@@ -2,6 +2,9 @@ import os
 import sys
 from agent import SkillRouter
 from skills import buscar_web, buscar_youtube, crear_nota, abrir_app, enviar_whatsapp, abrir_excel, crear_documento, analizar_pantalla, cancelar_accion, seleccionar_opcion, controlar_pantalla, enviar_nota_voz, llamar_whatsapp, grabar_audio
+from skills.windows import describir_enviar_whatsapp, describir_llamar_whatsapp, describir_enviar_nota_voz
+from skills.charla import ninguna
+from agent.datasets import training_examples
 from gui import run_gui
 
 MODEL_PATH = os.path.join("agent", "model.pkl")
@@ -15,14 +18,16 @@ def main():
     router.register_skill("controlar_pantalla", controlar_pantalla)
     router.register_skill("crear_nota", crear_nota)
     router.register_skill("abrir_app", abrir_app)
-    router.register_skill("enviar_whatsapp", enviar_whatsapp)
+    router.register_skill("enviar_whatsapp", enviar_whatsapp, confirm=describir_enviar_whatsapp)
     router.register_skill("abrir_excel", abrir_excel)
     router.register_skill("crear_documento", crear_documento)
     router.register_skill("analizar_pantalla", analizar_pantalla)
     router.register_skill("cancelar_accion", cancelar_accion)
     router.register_skill("grabar_audio", grabar_audio)
-    router.register_skill("enviar_nota_voz", enviar_nota_voz)
-    router.register_skill("llamar_whatsapp", llamar_whatsapp)
+    router.register_skill("enviar_nota_voz", enviar_nota_voz, confirm=describir_enviar_nota_voz)
+    router.register_skill("llamar_whatsapp", llamar_whatsapp, confirm=describir_llamar_whatsapp)
+    # "No es un comando": saludos, charla, cosas que Jarvis no sabe hacer
+    router.register_skill("ninguna", ninguna)
     
     if "--reset" in sys.argv:
         pref_path = os.path.join("agent", "preferences.json")
@@ -31,12 +36,13 @@ def main():
             if os.path.exists(p):
                 os.remove(p)
         print("Memoria, modelo y logs reseteados")
+        if os.path.exists(router.dataset_path):
+            print(f"Se conservan tus correcciones en {router.dataset_path} (bórralo a mano si quieres empezar de cero).")
         return
         
-    dry = "--real" not in sys.argv
     def load_contexts(defaults):
         if "--contexts" in sys.argv:
-            import os, json
+            import json
             try:
                 idx = sys.argv.index("--contexts")
                 path = sys.argv[idx + 1] if idx + 1 < len(sys.argv) else ""
@@ -48,98 +54,21 @@ def main():
             except Exception:
                 pass
         return defaults
-        
-    # Añadimos datos de entrenamiento para que el clasificador de ML aprenda
-    # a mapear textos a skills específicas
-    training_data = [
-        {"q": "clima hoy", "expected_action": "buscar_web"},
-        {"q": "busca en google el clima", "expected_action": "buscar_web"},
-        {"q": "que temperatura hace hoy", "expected_action": "buscar_web"},
-        {"q": "que tiempo va a hacer manana", "expected_action": "buscar_web"},
-        {"q": "investiga sobre inteligencia artificial", "expected_action": "buscar_web"},
-        {"q": "busca imagenes de gatos", "expected_action": "buscar_web"},
-        {"q": "dime sobre la revolucion francesa", "expected_action": "buscar_web"},
-        {"q": "cuanto cuesta el dolar hoy", "expected_action": "buscar_web"},
-        {"q": "buscame recetas de pizza", "expected_action": "buscar_web"},
-        {"q": "quien gano el partido de ayer", "expected_action": "buscar_web"},
-        
-        {"q": "pon en youtube un video de risa", "expected_action": "buscar_youtube"},
-        {"q": "reproduce la cancion despacito en youtube", "expected_action": "buscar_youtube"},
-        {"q": "busca en youtube tutorial de python", "expected_action": "buscar_youtube"},
-        {"q": "pon a coldplay", "expected_action": "buscar_youtube"},
-        
-        {"q": "el primero", "expected_action": "seleccionar_opcion"},
-        {"q": "reproduce el segundo", "expected_action": "seleccionar_opcion"},
-        {"q": "la opcion 1", "expected_action": "seleccionar_opcion"},
-        {"q": "el tercer video", "expected_action": "seleccionar_opcion"},
-        
-        {"q": "baja un poco", "expected_action": "controlar_pantalla"},
-        {"q": "sube la pantalla", "expected_action": "controlar_pantalla"},
-        {"q": "pausa el video", "expected_action": "controlar_pantalla"},
-        {"q": "cierra la pestaña", "expected_action": "controlar_pantalla"},
-        {"q": "escrol para abajo", "expected_action": "controlar_pantalla"},
-        
-        {"q": "crea una nota importante", "expected_action": "crear_nota"},
-        {"q": "apunta esto por favor", "expected_action": "crear_nota"},
-        {"q": "nueva nota", "expected_action": "crear_nota"},
-        {"q": "escribe un recordatorio", "expected_action": "crear_nota"},
-        
-        {"q": "abre el explorador", "expected_action": "abrir_app"},
-        {"q": "inicia la calculadora", "expected_action": "abrir_app"},
-        {"q": "ejecuta notepad", "expected_action": "abrir_app"},
-        {"q": "abre la calculadora", "expected_action": "abrir_app"},
-        {"q": "abre el bloc de notas", "expected_action": "abrir_app"},
-        {"q": "abre paint", "expected_action": "abrir_app"},
-        
-        {"q": "envia un whatsapp a maria hola", "expected_action": "enviar_whatsapp"},
-        {"q": "mandale un mensaje por whatsapp a carlos", "expected_action": "enviar_whatsapp"},
-        {"q": "whatsapp a mama diciendo llego tarde", "expected_action": "enviar_whatsapp"},
-        {"q": "abre whatsapp", "expected_action": "enviar_whatsapp"},
-        {"q": "abre whatsaapp", "expected_action": "enviar_whatsapp"},
-        
-        {"q": "abre un excel", "expected_action": "abrir_excel"},
-        {"q": "nueva hoja de calculo", "expected_action": "abrir_excel"},
-        {"q": "crea un excel para cuentas", "expected_action": "abrir_excel"},
-        
-        {"q": "crea un documento de word", "expected_action": "crear_documento"},
-        {"q": "nuevo archivo de texto", "expected_action": "crear_documento"},
-        {"q": "escribir carta documento", "expected_action": "crear_documento"},
-        
-        {"q": "mira mi pantalla", "expected_action": "analizar_pantalla"},
-        {"q": "que ves en mi pantalla", "expected_action": "analizar_pantalla"},
-        {"q": "toma una captura", "expected_action": "analizar_pantalla"},
-        {"q": "dime que hay aqui", "expected_action": "analizar_pantalla"},
-        
-        {"q": "cancela", "expected_action": "cancelar_accion"},
-        {"q": "detente", "expected_action": "cancelar_accion"},
-        {"q": "para la automatizacion", "expected_action": "cancelar_accion"},
-        {"q": "abortar mision", "expected_action": "cancelar_accion"},
 
-        {"q": "graba un audio", "expected_action": "grabar_audio"},
-        {"q": "graba una nota de voz de 10 segundos", "expected_action": "grabar_audio"},
-        {"q": "grabame un memo de voz", "expected_action": "grabar_audio"},
-        {"q": "empieza a grabar audio", "expected_action": "grabar_audio"},
-
-        {"q": "manda una nota de voz a maria por whatsapp", "expected_action": "enviar_nota_voz"},
-        {"q": "envia un audio de whatsapp a carlos", "expected_action": "enviar_nota_voz"},
-        {"q": "grabale una nota de voz a mama por whatsapp", "expected_action": "enviar_nota_voz"},
-
-        {"q": "llama a carlos por whatsapp", "expected_action": "llamar_whatsapp"},
-        {"q": "hazle una llamada a maria", "expected_action": "llamar_whatsapp"},
-        {"q": "llamada de voz a papa por whatsapp", "expected_action": "llamar_whatsapp"},
-    ]
-    
-    contexts = load_contexts(training_data)
+    # Datos de entrenamiento: frases base (data/base_es.jsonl), MASSIVE adaptado
+    # (data/massive_es.jsonl, si existe) y tus correcciones (agent/feedback_data.jsonl).
+    # Ver scripts/importar_massive.py y scripts/evaluar.py.
+    feedback_examples = router.load_feedback_examples()
+    base_examples = training_examples(router.skills, use_massive="--sin-massive" not in sys.argv)
+    contexts = load_contexts(base_examples) + feedback_examples
 
     def train_epochs(epochs: int):
         """Entrena el clasificador de intención de forma supervisada.
 
-        Usa train_intent (no add_feedback) para NO contaminar preferences.json
+        Usa train_batch (no add_feedback) para NO contaminar preferences.json
         con éxitos/fallos simulados que nunca ocurrieron de verdad.
         """
-        for _ in range(epochs):
-            for ctx in contexts:
-                router.train_intent(ctx["expected_action"], {"q": ctx["q"], "dry_run": True})
+        router.bandit.train_batch(contexts, epochs=epochs)
 
     # Cargamos el modelo persistido para seguir entrenando sobre lo ya aprendido
     loaded = router.load_model(MODEL_PATH)
@@ -150,6 +79,9 @@ def main():
         print("Entrenamiento ML completado y guardado. El modelo de Intenciones está listo.")
     elif "--status" in sys.argv:
         print("Modelo cargado:", loaded)
+        print("Ejemplos de entrenamiento:", len(contexts), f"(de ellos {len(feedback_examples)} tuyos)")
+        if os.path.exists(router.pending_path):
+            print("Frases pendientes de etiquetar: python scripts/etiquetar_pendientes.py --listar")
         print("Valores:", router.get_values())
         print("Conteos:", router.get_counts())
         print("Stats:", router.get_stats())

@@ -50,3 +50,18 @@ sequenceDiagram
 
 1. Instalar requerimientos: `pip install -r requirements.txt`
 2. Ejecutar el asistente: `python demo.py`
+
+## Datos y entrenamiento
+
+Jarvis solo ejecuta una acción si el clasificador tiene al menos un 50 % de
+confianza; si no, pregunta. Enviar WhatsApp, llamar o mandar notas de voz
+siempre piden confirmación. Para mejorar el modelo:
+
+```bash
+python scripts/importar_massive.py        # descarga y adapta MASSIVE (español)
+python scripts/evaluar.py --detalle       # mide aciertos / abstenciones / errores
+python scripts/etiquetar_pendientes.py    # etiqueta las frases que no entendió
+python demo.py --train                    # reentrena con todo lo anterior
+```
+
+Detalles de cada archivo en [data/README.md](data/README.md).
