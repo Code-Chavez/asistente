@@ -45,9 +45,14 @@ class JarvisGUI(ctk.CTk):
         self.wake_listener = None             # escucha de palabra clave "Jarvis"
         self.last_details = None              # data de la última acción (bajo demanda)
         self.title("Jarvis Assistant")
-        self.geometry("700x500")
+        # Alto suficiente para la consola + entrada + estado del wake word +
+        # confirmación + feedback, incluso con varias barras visibles a la vez
+        # (p.ej. confirmando un WhatsApp con el feedback aún deshabilitado).
+        # minsize evita que, al redimensionar, esas barras queden fuera de vista.
+        self.geometry("700x640")
+        self.minsize(700, 560)
         # Output console
-        self.textbox = ctk.CTkTextbox(self, width=660, height=400, font=("Consolas", 14), 
+        self.textbox = ctk.CTkTextbox(self, width=660, height=280, font=("Consolas", 14),
                                       fg_color="#1E1E1E", text_color="#00FF00")
         self.textbox.pack(pady=10, padx=20, fill="both", expand=True)
         self.textbox.configure(state="disabled")
