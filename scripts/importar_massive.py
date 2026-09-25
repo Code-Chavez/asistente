@@ -80,13 +80,15 @@ MAPEO = {
     "music_likeness": "ninguna",
     "music_dislikeness": "ninguna",
     "music_settings": "ninguna",
-    "audio_volume_up": "ninguna",
-    "audio_volume_down": "ninguna",
-    "audio_volume_mute": "ninguna",
-    "audio_volume_other": "ninguna",
+    "audio_volume_other": "ninguna",  # "cambia el volumen a 35%": no soportamos un nivel exacto
     "email_query": "ninguna",
     "email_querycontact": "ninguna",
     "email_addcontact": "ninguna",
+    # Subir/bajar/silenciar volumen -> nuestro control_volumen
+    "audio_volume_up": "control_volumen",
+    "audio_volume_down": "control_volumen",
+    "audio_volume_mute": "control_volumen",
+
     # Ambiguas con nuestros skills (enviar mensajes, poner audio, recordatorios)
     "email_sendemail": None,
     "social_post": None,

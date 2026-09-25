@@ -198,43 +198,75 @@
 {"q": "necesito escuchar a buleria por parte de david bisbal ahora", "expected_action": "buscar_youtube", "source": "massive:play_music", "split": "dev"}
 {"q": "reproducir el cuarto álbum de afi", "expected_action": "buscar_youtube", "source": "massive:play_music", "split": "dev"}
 {"q": "quiero escuchar loco", "expected_action": "buscar_youtube", "source": "massive:play_music", "split": "dev"}
-{"q": "añade leche a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "puedes crear una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "agregar cereales a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "por favor agregue este artículo a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "añade algo a mi lsita", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "hacer lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "incluir un elemento en una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "crear una lista de la compra mensual pendiente", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "pon lápiz en mi lista de supermercado", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "baja tu volumen por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "dev"}
+{"q": "ve a dormir", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "audio", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "puedes bajar el tono por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "dev"}
+{"q": "silencia en la próxima hora por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "aumenta el volumen por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "baje todo el volumen de los altavoces por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "dev"}
+{"q": "silencia todas las respuestas ahora", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "puede hablar más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "baja el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "dev"}
+{"q": "silencia el audio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "por favor sube el volumen al maximo en los ajustes", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "baja el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "dev"}
+{"q": "ey olly silencia los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "sube el volumen un poco", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "más suave", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "dev"}
+{"q": "silencia el altavoz por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "no puedo oir sube el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "pon el volumen a bajo", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "dev"}
+{"q": "por favor no contestes", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "sube el sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "háblame más bajo", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "dev"}
+{"q": "silenciar el sonido de los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "olly sube el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "toca el botón de silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "sube el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "silenciar la configuraciones", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "sube el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "detener el audio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "sube el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "pon modo silencio hasta que digan lo contrario", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "sube el volumen de la música a noventa", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "por favor apaga", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "por favor no hablar", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
+{"q": "puedes silenciarte un rato por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "dev"}
 {"q": "recuérdame pedir más jabón", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "crea una nueva lista antes de mañana", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "crear una nueva lista de", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "por favor agregue este artículo a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "añade esto a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "incluir un elemento en una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "haz una lista de números para mi", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
 {"q": "hacer una lista para el trabajo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "añadir compras a mi lista para hacer hoy", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
 {"q": "hacer una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
 {"q": "borra la lista vieja de reproducción y crea una nueva", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "añade pásteles a la lista de navidad", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "por favor añade la leche a la lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "crear una nueva lista de", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "agregar cereales a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "añade leche a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "añade algo a mi lsita", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
 {"q": "créame una nueva lista por favor", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "añadir una nueva lista para material escolar", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "añade esto a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "hacer lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "puedes crear una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
 {"q": "añadir supermercado la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "haz una lista de números para mi", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "crea una nueva lista antes de mañana", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "por favor añade la leche a la lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "añadir una nueva lista para material escolar", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "pon lápiz en mi lista de supermercado", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "añade pásteles a la lista de navidad", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
 {"q": "añade este articulo a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
 {"q": "crear una nueva lista de mis facturas pendientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
-{"q": "próxima alarma", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "dev"}
-{"q": "borrar alarmas para mañana", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "dev"}
-{"q": "me gustaría una alarma despertador mañana a las siete de la mañana", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "dev"}
-{"q": "baje todo el volumen de los altavoces por favor", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "dev"}
-{"q": "silencia en la próxima hora por favor", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "dev"}
-{"q": "sube el volumen un poco", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "dev"}
+{"q": "crear una lista de la compra mensual pendiente", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "añadir compras a mi lista para hacer hoy", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "dev"}
+{"q": "tengo alguna alarma para mañana por la mañana", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "dev"}
+{"q": "moviles", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "dev"}
+{"q": "por favor pon alarma a las diez de la noche", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "dev"}
 {"q": "qué hacer a continuación en los eventos", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "dev"}
-{"q": "borra la boda del día diez de mi calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "dev"}
-{"q": "si son las ocho de la tarde en la costa este que hora es en palma mallorca", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "dev"}
-{"q": "cien mil doscientas veintitrés", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "dev"}
-{"q": "guardar correo a mi contacto", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "dev"}
-{"q": "mostrar no leído", "expected_action": "ninguna", "source": "massive:email_query", "split": "dev"}
+{"q": "borrar el día de después del evento", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "dev"}
+{"q": "convierte la hora de madrid en la hora de londres", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "dev"}
+{"q": "en que día cae mi cumpleaños el próximo año", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "dev"}
+{"q": "por favor añade a rosa a mi lista de contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "dev"}
+{"q": "quién me ha enviado correos electrónicos recientemente y cuáles son los asuntos de cada correo electrónico", "expected_action": "ninguna", "source": "massive:email_query", "split": "dev"}
 {"q": "cuál es la dirección de correo electrónico de mamá", "expected_action": "ninguna", "source": "massive:email_querycontact", "split": "dev"}
 {"q": "oye", "expected_action": "ninguna", "source": "massive:general_greet", "split": "dev"}
 {"q": "abre algunos chistes geniales", "expected_action": "ninguna", "source": "massive:general_joke", "split": "dev"}
@@ -258,18 +290,15 @@
 {"q": "estado del pedido del restaurante", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "dev"}
 {"q": "consígueme un uber", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "dev"}
 {"q": "consígueme un billete de tren a huesca hoy", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "dev"}
-{"q": "reportar configuraciones de alarma", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "dev"}
-{"q": "moviles", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "dev"}
-{"q": "pon alarma mañana a las seis de la mañana", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "dev"}
-{"q": "pon el volumen a bajo", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "dev"}
-{"q": "silenciar la configuraciones", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "dev"}
-{"q": "sube el volumen", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "dev"}
-{"q": "cuándo saldrán los trenes mañana", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "dev"}
-{"q": "eliminar reunión", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "dev"}
+{"q": "configuré una alarma para despertarme por la mañana", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "dev"}
+{"q": "siri borra las alarmas de yoga", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "dev"}
+{"q": "poner una alarma a las tres de la tarde", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "dev"}
+{"q": "cuando es el ciclo de facturación", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "dev"}
+{"q": "borra la boda del día diez de mi calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "dev"}
 {"q": "si son las diez p. m. en madrid qué hora es en tenerife", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "dev"}
-{"q": "qué será el día quince de marzo", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "dev"}
-{"q": "guardar en contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "dev"}
-{"q": "revisa mis correo s", "expected_action": "ninguna", "source": "massive:email_query", "split": "dev"}
+{"q": "dime que hora es", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "dev"}
+{"q": "alexa añade erosser arroba hotmail punto com como nuevo contacto para ana lópez", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "dev"}
+{"q": "hazme una lista de los destinatarios y remitentes de los emails de la ultima semana", "expected_action": "ninguna", "source": "massive:email_query", "split": "dev"}
 {"q": "abre la información de contacto de pablo", "expected_action": "ninguna", "source": "massive:email_querycontact", "split": "dev"}
 {"q": "oye oye", "expected_action": "ninguna", "source": "massive:general_greet", "split": "dev"}
 {"q": "buscar chistes nuevos", "expected_action": "ninguna", "source": "massive:general_joke", "split": "dev"}
@@ -293,18 +322,15 @@
 {"q": "puedo hacer un pedido para llevar al taco bell", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "dev"}
 {"q": "necesito reservar un taxi por favor", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "dev"}
 {"q": "cómprame un billete de tren para hoy a la ciudad de córdoba", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "dev"}
-{"q": "dime qué horario de alarmas tienes puestas", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "dev"}
-{"q": "borra mi alarma de las cinco de la tarde", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "dev"}
-{"q": "pon una alarma dentro de dos horas por favor", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "dev"}
-{"q": "más suave", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "dev"}
-{"q": "toca el botón de silencio", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "dev"}
-{"q": "no puedo oir sube el volumen", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "dev"}
-{"q": "cuál es mi programa para el catorce de junio de dos mil diecisiete", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "dev"}
-{"q": "limpia mi agenda para hoy", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "dev"}
+{"q": "comprueba que la alarma está puesta hoy a las diez de la mañana", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "dev"}
+{"q": "deshacerse de mi alarma de las ocho a. m.", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "dev"}
+{"q": "poner alarma", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "dev"}
+{"q": "qué recordatorios tengo para esta semana", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "dev"}
+{"q": "eliminar mi evento de calendario a la una p. m. hoy dia", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "dev"}
 {"q": "cuál es la hora en india cuando la hora en estados unidos es a las doce de la noche", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "dev"}
-{"q": "qué hora es en madrid", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "dev"}
-{"q": "guarda este correo en contacto", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "dev"}
-{"q": "cuántos correos sin leer tengo", "expected_action": "ninguna", "source": "massive:email_query", "split": "dev"}
+{"q": "que día es hoy", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "dev"}
+{"q": "guardar correo a mi contacto", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "dev"}
+{"q": "mostrar no leído", "expected_action": "ninguna", "source": "massive:email_query", "split": "dev"}
 {"q": "es esto el código postal correcto de mi jefe", "expected_action": "ninguna", "source": "massive:email_querycontact", "split": "dev"}
 {"q": "quiero un chiste de nerds", "expected_action": "ninguna", "source": "massive:general_joke", "split": "dev"}
 {"q": "moda", "expected_action": "ninguna", "source": "massive:general_quirky", "split": "dev"}
@@ -323,6 +349,15 @@
 {"q": "google mezcla la lista de reproducción", "expected_action": "ninguna", "source": "massive:music_settings", "split": "dev"}
 {"q": "juguemos warcraft", "expected_action": "ninguna", "source": "massive:play_game", "split": "dev"}
 {"q": "pídeme comida china", "expected_action": "ninguna", "source": "massive:takeaway_order", "split": "dev"}
+{"q": "encuentra mi comida", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "dev"}
+{"q": "reservar un taxi", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "dev"}
+{"q": "necesito ir a lyon reservar un billete de tren", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "dev"}
+{"q": "que alarmas he puesto ahora mismo", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "dev"}
+{"q": "eliminar mis alarmas tempranas", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "dev"}
+{"q": "ponga una alarma para las cinco en punto de esta noche etiquetada taxi", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "dev"}
+{"q": "que es el veinte de noviembre", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "dev"}
+{"q": "elimina hacer la compra de mi agenda del sábado", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "dev"}
+{"q": "si son las ocho de la tarde en la costa este que hora es en palma mallorca", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "dev"}
 {"q": "qué ingredientes se pueden usar en vez de azafran", "expected_action": "buscar_web", "source": "massive:cooking_recipe", "split": "test"}
 {"q": "alguna última noticia de el país", "expected_action": "buscar_web", "source": "massive:news_query", "split": "test"}
 {"q": "de dólar a euro", "expected_action": "buscar_web", "source": "massive:qa_currency", "split": "test"}
@@ -523,52 +558,105 @@
 {"q": "por favor salta a el proximo episodio de podcast", "expected_action": "buscar_youtube", "source": "massive:play_podcasts", "split": "test"}
 {"q": "por favor toca mi éxitos de rap de los noventa", "expected_action": "buscar_youtube", "source": "massive:play_music", "split": "test"}
 {"q": "comienza a poner el cine en la ser", "expected_action": "buscar_youtube", "source": "massive:play_podcasts", "split": "test"}
-{"q": "crear una lista que esté disponible", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "puedes agregar un artículo a mi lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "por favor agregue azúcar a mi lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "agregar un nuevo elemento a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "añádelo a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "empieza una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "agregar detergente a la lista de cosas que necesito comprar", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "crear una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "pon hamburguesa en mi lista de comestibles", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "por favor agregue una lista de cosas para comprar para la fiesta", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "puedes crear una lista para mí", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "añadir contactos de empresa a la lista de contactos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "por favor crea una nueva lista para mí", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "añadir el gasto de cinco dólares en mi lista de gastos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "por favor encuentra todos los nombres que empiecen por el alfabeto de la a y crea una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "agrega esto a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "baja el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "test"}
+{"q": "mudo por una hora", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "aumenta el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "baja el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "test"}
+{"q": "apaga la vibración del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "sube lo siri", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "por favor baja el volumen de música", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "test"}
+{"q": "poner los altavoces en silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "sube el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "baje el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "test"}
+{"q": "silencia por dos horas", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "apenas puedo oírte", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "por favor reduce el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "test"}
+{"q": "apaga el modo silencioso hasta que llegue a casa del trabajo", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "sube el volumen de mi altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "baja el volumen al cincuenta por ciento", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "test"}
+{"q": "de ahora en adelante mudo", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "después desactiva modo silencioso", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "habla más bajito por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "test"}
+{"q": "no hables por una hora", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "puedes subir el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "baja un veinte por ciento", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "test"}
+{"q": "silencia la musica", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "no te puedo oir", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "reduce el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "test"}
+{"q": "no hagas nada de ruido hasta la alarma de la mañana", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "hablar en voz alta", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "por favor baja el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "test"}
+{"q": "no hables", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "subir el volumen de la música actual", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "por favor sube el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "test"}
+{"q": "apaga el sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "rápido", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "ajustar en silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "por favor enciende mi altavoces en google", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "eh siri silencia los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "dónde está el coche", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "no hagas nigún sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "tiempo de silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "apaga el sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "silencia el volumen de los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "apaga los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "puedes dejar de hablar", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "no hables hasta que te pregunto", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "borra los datos", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "apaga los sonidos", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "silencia el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "por favor cállate por otra hora", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "por favor silencia por cinco minutos", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "mudo por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "silencio altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "por favor deja de hablar", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "no hablar hoy", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "por favor silencia mi altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "silencia por un cuarto de hora", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "test"}
 {"q": "lista de adjustes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "quiero hacer la lista de compras de esta semana", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "haz una lista de la compra por favor", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "crear una lista de reproducción", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "ayúdame a empezar mi lista de cocina", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "necesito crear una nueva lista de tarea pendientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "añadir el brócoli a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "añadir plátanos a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "necesito hacer una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "añadir reloj de pulsera a la lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "lista nueva", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "añadir la oficina de correos a mi lista de recados para el sábado", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "haz una nueva lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "por favor crea una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "hacer una lista sobre el calendario de conciertos de selena gomez", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "añade a roberta a mi lista de contactos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "añadir contactos de empresa a la lista de contactos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "añádelo a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "puedes agregar un artículo a mi lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
 {"q": "por favor actualiza mi lista de la compra con un galón de leche dos por ciento", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "buscar el artículo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "hacer una lista sobre el calendario de conciertos de selena gomez", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "agregar maria jose en la tarjeta de menú", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "haz una nueva lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "añadir reloj de pulsera a la lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "empieza una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "crear una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "añadir vino tinto a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "por favor agregue una lista de cosas para comprar para la fiesta", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "por favor crea una nueva lista para mí", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "añadir la oficina de correos a mi lista de recados para el sábado", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "por favor crea una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "por favor agregue azúcar a mi lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "crear una lista de reproducción", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "quiero hacer la lista de compras de esta semana", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "crear una lista que esté disponible", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "pon hamburguesa en mi lista de comestibles", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "agregar un nuevo elemento a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "añadir el brócoli a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "por favor encuentra todos los nombres que empiecen por el alfabeto de la a y crea una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "ayúdame a empezar mi lista de cocina", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "lista nueva", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "añade a roberta a mi lista de contactos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "necesito crear una nueva lista de tarea pendientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "haz una lista de la compra por favor", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "añadir el gasto de cinco dólares en mi lista de gastos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "agrega esto a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "necesito hacer una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "añadir plátanos a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
 {"q": "añadir pasta de dientes a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
 {"q": "por favor añade naranjas a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "añadir vino tinto a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "puedes crear una lista para mí", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
+{"q": "agregar detergente a la lista de cosas que necesito comprar", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
 {"q": "quiero pastel de camote de una panadería local", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "buscar el artículo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "agregar maria jose en la tarjeta de menú", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "test"}
-{"q": "tengo alguna alarma activa mañana a las seis de la mañana", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "test"}
-{"q": "deshazte de mis alarmas actuales", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "test"}
-{"q": "despiértame a las cinco de la mañana esta semana", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "test"}
-{"q": "baja el volumen al cincuenta por ciento", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "test"}
-{"q": "puedes dejar de hablar", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "test"}
+{"q": "por favor dime que alarmas están encendidas", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "test"}
+{"q": "elimina la primera alarma", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "test"}
+{"q": "quiero una alarma para las tres hoy", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "test"}
 {"q": "cambia el volumen a treinta y cinco por ciento", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "test"}
-{"q": "no te puedo oir", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "test"}
 {"q": "puedes verificar los hechos sobre este tema", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "test"}
 {"q": "cancela mi plan de ir a recoger a mis padres al aeropuerto", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "test"}
 {"q": "cuántas horas de distancia hay entre my ubicación y madrid", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "test"}
@@ -598,13 +686,10 @@
 {"q": "podrías confirmar si pizza hut hace comida para llevar", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "test"}
 {"q": "puedes reservar una uber mañana", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "test"}
 {"q": "puedes reservarme un billete de tren", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "test"}
-{"q": "a qué horas están ajustadas mis alarmas", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "test"}
-{"q": "olly cancelar todas las alarmas para entrenamientos de futbol", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "test"}
-{"q": "quiero una alarma para las tres hoy", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "test"}
-{"q": "por favor reduce el volumen del altavoz", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "test"}
-{"q": "silencia por dos horas", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "test"}
-{"q": "puedes cambiar el volumen a", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "test"}
-{"q": "subir el volumen de la música actual", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "confirmar ajustes de mi alarma", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "test"}
+{"q": "no quiero ninguna alarma", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "test"}
+{"q": "dime cuándo son las cinco de la tarde", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "test"}
+{"q": "dónde está el ajuste de volumen", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "test"}
 {"q": "dame una lista de cosas que hacer", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "test"}
 {"q": "limpia todo en mi calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "test"}
 {"q": "diferencia horaria entre españa y estados unidos", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "test"}
@@ -633,13 +718,10 @@
 {"q": "dónde puedo conseguir un trago de tequila y algo de comida mexicana para llevar", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "test"}
 {"q": "llévame al aeropuerto", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "test"}
 {"q": "confirmar billete de avión a alemania", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "test"}
-{"q": "está mi alarma activada", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "test"}
-{"q": "no quiero ninguna alarma", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "test"}
-{"q": "poner una nueva alarma para esa hora", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "test"}
-{"q": "baja un veinte por ciento", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "test"}
-{"q": "de ahora en adelante mudo", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "test"}
-{"q": "dónde está el ajuste de volumen", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "test"}
-{"q": "dónde está el coche", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "test"}
+{"q": "cuál es la hora de despertador de mi alarma para mi vuelo de este fin de semana", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "test"}
+{"q": "eliminar la última alarma", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "test"}
+{"q": "despiértame en media hora", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "test"}
+{"q": "establecer los ajustes de audio por defecto", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "test"}
 {"q": "que hay hoy", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "test"}
 {"q": "eliminar todos los eventos de mi calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "test"}
 {"q": "setecientos", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "test"}
@@ -662,6 +744,15 @@
 {"q": "eliminar cereales de mi lista de compras", "expected_action": "ninguna", "source": "massive:lists_remove", "split": "test"}
 {"q": "no quiero volver a escuchar esa canción nunca más", "expected_action": "ninguna", "source": "massive:music_dislikeness", "split": "test"}
 {"q": "etiqueta esta canción con cinco estrellas", "expected_action": "ninguna", "source": "massive:music_likeness", "split": "test"}
+{"q": "puedes por favor crear un canal en pandora para aitana", "expected_action": "ninguna", "source": "massive:music_settings", "split": "test"}
+{"q": "vamos a jugar acorazado", "expected_action": "ninguna", "source": "massive:play_game", "split": "test"}
+{"q": "quiero comer algo picante", "expected_action": "ninguna", "source": "massive:takeaway_order", "split": "test"}
+{"q": "como va mi pedido", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "test"}
+{"q": "programar la recogida en taxi para el lunes al mediodía", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "test"}
+{"q": "busca un billete de tren a valencia", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "test"}
+{"q": "mirar si tengo una alarma puesta a las seis de la mañana", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "test"}
+{"q": "apaga la alarma a las ocho de la mañana", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "test"}
+{"q": "por favor ponga mi alarma para las cinco p. m.", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "test"}
 {"q": "cómo es la mejor manera para cocinar huevos", "expected_action": "buscar_web", "source": "massive:cooking_recipe", "split": "train"}
 {"q": "dime las noticias de hoy del noticiario", "expected_action": "buscar_web", "source": "massive:news_query", "split": "train"}
 {"q": "cuanto son diez dólares americanos en rupias indias", "expected_action": "buscar_web", "source": "massive:qa_currency", "split": "train"}
@@ -1262,196 +1353,465 @@
 {"q": "reproduce el próximo episodio del podcast", "expected_action": "buscar_youtube", "source": "massive:play_podcasts", "split": "train"}
 {"q": "ponme la canción más nueva de alejandro sanz", "expected_action": "buscar_youtube", "source": "massive:play_music", "split": "train"}
 {"q": "puedes volver a diciembre", "expected_action": "buscar_youtube", "source": "massive:play_podcasts", "split": "train"}
-{"q": "anotar en mi lista de tareas llamar al agente inmobiliario", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "agregar trapeador a la lista de la ferretería", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "anote esto en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añadir artículo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "abre la lista de compras y agrega leche", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "por favor haz una lista de amigos que invitar a la fiesta", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crear una lista para lo siguiente", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "haz cosas que hacer lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "por favor agregue un nuevo artículo a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "generar un nuevo inventario", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "iniciar una lista de nombres de perros", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añadir a mi lista de tareas hacer mi currículum", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añadir leche a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "pon pizza en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "dar de alta en esta lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "necesito que pongas a pasear al perro en mi lista de tareas", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "comenzar una nueva lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crea una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añadir este también", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añadir leche a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "necesito más leche", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "incluye este elemento", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "por favor crea una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "puedes añadir joan a mi lista de clientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "olly añadir pañales en la lista de cosméticos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "prepara la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "hacer una nueva lista de reproducción a partir de canciones recientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añade cortar césped a la lista de cosas por hacer", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "introduce esto en una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "poner perro limpio en la parte superior de la lista de limpieza", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "editar lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crear una nueva lista para mi", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crear lista de vacaciones", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "una nueva lista que se creará mañana", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "abrir mis notas", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crear una nueva lista llamada supermercado", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "mi nueva lista de horarios de trabajo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añade pañales a la lista de cosméticos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "agregar un nombre de película a la lista de deseos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "necesito añadir bananas a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "por favor cree una lista de pagos debidos a aquellos que no recibieron más de diez meses", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "alexa crea una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "volumen más bajo", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "quédate en silencioso por treinta minutos", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "por favor incrementa el volumen del reproductor de música", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "ok google baja todo el volumen de los altavoces por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "calla", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "volumen más alto más suave", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "olly baja el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "olly para por un minuto", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "apaga los graves del audio", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "silencia por dos horas", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "por favor sube la música", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja el volumen a diez por ciento", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "puedes poner el sonido en silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube un poco el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baje los altavoces a cinco por ciento", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "silencia audio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "donde esta el fuego", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "disminuir el volumen a muy baja", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "silenciar los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "subir", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "parar", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "olly más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "bajar el volumen a la mitad", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "altavoces apagados", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "oye el sonido está bajo puedes afinarlo", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "bja el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "dejar de jugar", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "pon el volumen de la musica a noventa", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "puedes hablar más bajo por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "configurar el sistema de música para silenciar", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "incrementa el volumen por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor baja el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "por favor desactive el silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "quiero volumen en mis altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "habla más bajo por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "silencia el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja el volumen de los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "por favor espera durante la próxima hora", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "por favor aumente el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "poner el volumen a cero", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube tu volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja audio", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "me gustaría silenciar los altavoces por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "cambiar el volumen de mi reproductor de música al ochenta por ciento", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "puedes por favor bajar tu volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "silenciar el sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "necesito un volumen alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor habla más bajo", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "para lo", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "necesito que repitas la información otra vez más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "quiero bajar mi altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "apaga el audio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "aumenta el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "silenciate hasta que te diga el contrario", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "pon lo más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "es demasiado fuerte disminuir el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "baja el ruido", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "reactivar mi sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor baja el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "estoy en una reunión por favor no hables", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "por favor suba el volumen de la música hips don't lie", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja el volumen al veinte por ciento", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "tengo una reunión esta noche a las siete p. m. por favor silencia la música por una hora", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "el volumen de la musica que se está reproduciendo ahora debería subir", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "eres demasiado ruidoso", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "no hablas", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "podrías hablar", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "no no bájale el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "por favor silencia el sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "bajar el volumen de mi reproductor de música en un cincuenta por ciento de su nivel actual", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "tu volumen es demasiado alto repíte lo más bajo", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "control del volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "en el reproductor de música ajusta el nivel de volumen a sesenta", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "puede hacer que sea un poco más silencioso", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "apaga los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "quiero que se silencie", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el volumen un poco", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "reduce el volumen a diez", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "por favor pararte", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "eleva el volumen al nivel siete en la radio", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "por favor no hables", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor baja el sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "silencio activado hasta que yo lo diga", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "apenas puedo oírte olly", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "bajar", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "pausa la música", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "no te oigo puedes repetirlo más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "enciende la radio ahora a bajo volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "apaga el sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "más alta por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "bajar el volumen de los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "buenas noches", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "pon el volumen un poco más bajo por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "puedes silenciar cuando no estoy en casa", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor el volumen más bajo", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "bajar el volumen del altavoz al final del nivel", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "quiero los altavoces al máximo", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "está muy alto por favor puedes bajar la música", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "modo silencioso activado durante las próximas tres horas", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "eleva el volumen de los altavoces al cincuenta y cinco por ciento", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja el volumen por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "no responde en quince segundos", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el volumen de mis altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "bajar el volumen de los medio", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "por favor silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el volumen a cincuenta", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "volumen mudo ahora", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "subir el volumen al nivel más alta", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "demasiado alto", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "silenciate hasta las cinco de la tarde", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "tóca lo más fuerte", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "más tranquilo", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "para por diez segundos", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "incrementa el volumen a cincuenta", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor ajusta los altavoces a un nivel más bajo", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "es hora de silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "aumenta el volúmen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "quédate silencioso", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "por favor sube el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "pon modo silencioso", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "soy incapaz de oírte puedes hablar más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja el volumen a veinte", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "apaga el sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "incrementa el volumen en un punto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "silencio modo", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "puedes bajar eso", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "ayúdame a silenciar mi altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "ey sube el volumen alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "bajar el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "silencio por un día", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "necesito que tengas el volumen más fuerte", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "baja el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "por favor para el altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "lento", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "disminuye el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_down", "split": "train"}
+{"q": "silenciar para volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "cambia el nivel de volumen a diecinueve por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor guarda silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "puedes subir el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "apagar el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el volumen al máximo", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silencia por veinte minutos", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "subir mi audio", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "no quiero sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "ajusta el volumen del reproductor", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "apaga el sonido por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "por favor sube el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "deja de hacer sonidos durante cuarenta minutos", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "habla más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "sin notificaciones durante cinco minutos", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "habla más alto por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor silencia el control del volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "desactiva el altavoz ahora", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor google quédate muy quieto el niño está durmiendo", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "por favor anule el silencio de la configuración", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "callarte", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "olly por favor habla", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "pon los ajustes a mudo", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el volumen de la música", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "enciende el modo silencioso hasta que mi alarma se apague", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el volumen del altavoz de la izquierda a diez", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "quiero silenciar el altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "ok google necesito escuchar el sonido en mi altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor pon la televisión en modo silencioso por una hora", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "olly habla más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "no usar", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "necesito sonido en mis altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "eliminar el ruido", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el volumen a sesenta", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silencio por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "pon el sonido más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "incrementa el volumen dos niveles", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "quédate en silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "subir el volumen de los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "ponte mudo", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "aumentar el volumen a setenta por ciento", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "apaga el altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "desactivar silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "pon en modo silencioso por una hora", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "necesito oir el volumen de la musica que suena", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor silenciate", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "no puede escucharte repetir eso más fuerte", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "puedes hablar un poco más alta", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "puedes apagar mis altavoces por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "hizo que el volumen de los medios fuera más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "apaga el sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "por favor habla", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silencio hasta las tres p. m.", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silencia los altavoces por un minuto necesito hace una llamada", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "podrías por favor gritarme la respuesta", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "necesito que estés en silencio hasta mañana", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "el volumen de la música debería subir a noventa", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "por favor sube el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "necesito silenciar el altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "pon el volumen más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "apagar el volumen de medios", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "por favor habla alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "solo no hay notificaciones durante cinco minutos", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el volumen de la música", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silencio por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "más volumen por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor cambia el volumen a silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "suba el volumen para que pueda escuchar lo en otra habitación", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "olly silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "por favor baja el volumen de esta canción", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "ok google silencia el sonido de los altavoces por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "puedes subir el volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silenciar los altavoces de la sala", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube lo", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silenciar el sonido en los altavoces por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "cambia el volument del altavoz a sesenta por ciento", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "modo silencioso cuatro horas", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "puedes hablar más alto", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "ajustar la radio en silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "puedes hablar un poco más bajo", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor quédate silencioso en las próximas dos horas", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "puedes aumentar el volumen de los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "sonido apagado", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube volumen por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silencia los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silencia los altavoces por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "pon otra vez lo hablado antes", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "no hablar por un rato", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "aumenta el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor para un rato", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube tu volumen", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor silencio hasta que te diga", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "puedes subir lo un poco", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silencia altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "habla tan alto como pueda", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "ocultar", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "sin sonido", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "sube la música por favor", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "puedes poner en silencioso mi altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "subir el volumen de los medio", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "pon el volumen a cero", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "en voz alta", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "por favor silencia los altavoces", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "no puedo oir nada", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "mudo por veinte minutos", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "por favor sube el volumen del altavoz", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "activa silencio", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "hacer que el volumen del altavoz sea máximo", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "silenciar inmediatamente", "expected_action": "control_volumen", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "aumenta el volumen a cincuenta por ciento", "expected_action": "control_volumen", "source": "massive:audio_volume_up", "split": "train"}
+{"q": "hacer una nueva lista de entrenamientos recientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "iniciar una nueva lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "añadir una pestaña a la lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "quiero hacer una lista y esto debería guardarse automáticamente como un archivo de texto con la lista de títulos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añade estos documentos a las cosas que necesito para viajar", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añadir vino a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "nuevo escenario tiempo o calendario a nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "poner leche en la lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "graba la nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "abreme una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "quiero tener una nueva lista de reproducción de canciones", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "por favor actualiza la lista con el nuevo artículo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "actualizar la lista de ejercicios con nuevos elementos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "oye pon zanahorias en eso", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crea lista de compra como objetivo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "unirme a esto", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "agregar huevos a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "creo que me quedé sin esto puedes añadirlo a mi lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "puedes crear una nueva lista en la lista de reproducción", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "eliminar lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "dame una lista nueva", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "hacer una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "vuelve a añadir huevos en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "configure una nueva lista con lo siguiente", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "podrías crear una nueva lista para mi", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añade mantequilla a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "nosotros necesitamos leche", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "mi nuevo chequeo de salud nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "hacer una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añade revisión de coche a mi lista de que hacer hoy", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "quiero saber si se puede añadir un artículo extra a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crea una lista para las tareas de hoy", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "quiero empezar una nueva lista de herramientas eléctricas en oferta en leroy merlin", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "necesito agregar pasta y leche a la lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "oye haz una lista de nombres que comiencen con vocales y terminen con vocales", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "actual", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "crear una lista de libros para pedir", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "hay espacio en mi lista de la compra para un artículo extra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "incluye este elemento", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "unirme a esto", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crear lista de vacaciones", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "necesito hacer una lista de facturas vencidas", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "por favor empieza una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crea una lista de ideas brillantes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "puedes añadir joan a mi lista de clientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "editar lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "dar de alta en esta lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "recuerda poner zanahorias ahí", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "la lista debería de tener eso", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "reemplaza los muebles con electrónica de la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "necesito pegar una lista de tareas para el trabajo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "agregar trapeador a la lista de la ferretería", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añadir lápiz a la lista de suministros escolares", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "haz cosas que hacer lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "necesito iniciar una lista llamada por", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "oye pon zanahorias en eso", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añade la canción a la nueva lista de reproducción", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "iniciar una lista de nombres de perros", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crear una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "agregar canciones nuevos a la lista de reproducción", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "preparar una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "hacer una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "abrir mis notas", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "actualizar la lista con una nueva", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añade sopa a mi lista de compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crear lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "nueva lista por favor", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "lista de edición de olly", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añádelo a mi compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "agregar un artículo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "hacer una lista de fotos de la cámara", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crear una nueva lista llamada supermercado", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crear una lista en blanco", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "eliminar lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añadir leche a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "anote esto en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "alexa crea una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crea una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crear una nueva lista para mis planes de cumpleaños", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "comenzar una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añadir leche a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "añade una reunión con el arquitecto a mi nueva lista de nuevos proyectos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "empezar la lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "abre la lista de compras y agrega leche", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crear una lista para lo siguiente", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añadir vino a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "anotar en mi lista de tareas llamar al agente inmobiliario", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "graba la nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "hacer una nueva lista de reproducción a partir de canciones recientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "empezar a crear una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "vuelve a añadir huevos en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "una nueva lista que se creará mañana", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "nueva lista por favor", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "haga una nueva lista de razas de perros", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "comenzar una nueva lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "guardar cita en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "poner lavar el coche en mi lista de tareas pendientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añadir toallitas a la lista del supermercado", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "comenzar una nueva lista de números de lotería", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "actualizar mi lista con zapatos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "haga una nueva lista para útiles escolares", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "agregar compras de comestibles a la lista de tareas pendientes de hoy", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añade a alex a la lista de invitados a la boda", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "oye haz una lista de nombres que comiencen con vocales y terminen con vocales", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añadir este también", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "incluir esto", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "lista de edición de olly", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "puedes crear una nueva lista en la lista de reproducción", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "por favor empieza una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "alexa agrega bananas a mi lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "necesito que añadas naranjas a mi lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "pon pizza en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "agregue café a la lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "me gustaría empezar una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "introduce esto en una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añade recoger a los niños de la escuela a mi lista de tarea s para hoy", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "quiero empezar una nueva lista de herramientas eléctricas en oferta en leroy merlin", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añadir un nuevo elemento", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "necesitao hacer una lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "por favor añade el articulo a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "pon el elemento en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crea lista de compra como objetivo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "por favor crea una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "agregar zapatos a mi lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "agregar cambio de aceite a mi lista de tareas pendientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "abreme una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crear una nueva lista para mi", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "por favor haz una lista de las cosas que tengo que comprar mañana", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "empieza una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "pon huevos en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "pon el elemento en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "me gustaría empezar una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añadir a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "este elemento debe ser añadido a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "oye olly necesito que hagas una lista de jugadores de cricket del equipo indio que jugaron en el equipo internacional en dos mil catorce", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "necesitao hacer una lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añade recoger a los niños de la escuela a mi lista de tarea s para hoy", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "selecciona el artículo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "agregar zapatos a mi lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añade a alex a la lista de invitados a la boda", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crear una nueva lista gracias", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "haz una nueva lista para mi", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "abrir una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "por favor agregue un nuevo artículo a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añade mantequilla a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "añadir este artículo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "empieza una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "guardar cita en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crear una nueva lista de tareas", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añadir el elemento a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "haga una nueva lista de razas de perros", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "necesito hacer una lista de facturas vencidas", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "agregar nuevos elementos en la lista de alarma", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crear una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añadir lápiz a la lista de suministros escolares", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "puede añadir leche a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crear una nueva lista para mis planes de cumpleaños", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "preparar una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "agregar huevos a mi lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "quiero hacer la lista de tareas de la próxima semana", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crear una nueva lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "quiero que me crees una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "pon esto en mi lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añade cebollino a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "por favor empieza una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "empezar lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añadir un nuevo elemento", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "mi nueva lista de horarios de trabajo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "necesito una lista de mis clientes hoy hacer una", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "la lista debería de tener eso", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "por favor empieza una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "actualizar mi lista con zapatos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "agregue café a la lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "por favor pídeme la comida de este mes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "incluir esto", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crear una lista en blanco", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crear un artículo para agregarlo a mi lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "poner lavar el coche en mi lista de tareas pendientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "hay espacio en mi lista de la compra para un artículo extra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "abre una nueva lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añade el articulo a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "hacer una lista de fotos de la cámara", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añadir toallitas a la lista del supermercado", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "agregar ketchup a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "mostrar una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "necesito añadir bananas a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añadir el elemento a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "empieza una nueva lista para mi", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "quiero empezar una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "poner zapatos en mi lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crea una nueva lista para mañana", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "haz una nueva lista para mi por favor", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "ayúdame a establecer una lista de", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "por favor añade el articulo a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añade la canción a la nueva lista de reproducción", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "necesito pegar una lista de tareas para el trabajo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "puedes crear una nueva lista para mí", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añádelo a mi compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "puedes crear una lista para mi", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "en mi lista de compras por favor agregue naranjas", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "alexa añade lista de la compra a mi lista de tareas", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "crea una lista de ideas brillantes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "empezar la lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "comenzar una nueva lista de números de lotería", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "nuevo escenario tiempo o calendario a nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "necesito que pongas a pasear al perro en mi lista de tareas", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "agregar un nombre de película a la lista de deseos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "ayúdame a establecer una lista de", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "agregar compras de comestibles a mi lista de tareas", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "alexa agrega bananas a mi lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "abre de nuevo compra y añade leche", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "mostrar una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "por favor encuentra todos los nombres que empiezan por la g y crea una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "hacer una nueva lista de entrenamientos recientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "necesito agregar agua a mi lista de muller", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "comenzar una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "recuerda poner zanahorias ahí", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "agregar cambio de aceite a mi lista de tareas pendientes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "empezar a crear una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "necesito iniciar una lista llamada por", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "agregar compras de comestibles a la lista de tareas pendientes de hoy", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "por favor pon pan en la lista del supermercado", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "agregar canciones nuevos a la lista de reproducción", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "necesito que añadas naranjas a mi lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "haga una nueva lista para útiles escolares", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "añadir cita en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "agregar un artículo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "prepara la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "por favor haz una lista de amigos que invitar a la fiesta", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añade pañales a la lista de cosméticos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
 {"q": "hazme una nueva lista de verificación", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "reemplaza los muebles con electrónica de la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "abrir una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "iniciar una nueva lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
-{"q": "revisa las alarmas que tengo", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
-{"q": "borrar todas las alarmas del domingo", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
-{"q": "si mi paquete muestra que es para el envío mañana puedes poner una alarma una hora después de agradecerte", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
-{"q": "baja el volumen", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "train"}
-{"q": "silencia los altavoces por favor", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "train"}
-{"q": "cambia los ajustes de volumen a negativo", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
-{"q": "en el reproductor de música ajusta el nivel de volumen a sesenta", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "train"}
-{"q": "cuando tengo que pagar las facturas", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
-{"q": "puedes borrar la cita con el médico que tuve el martes", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
-{"q": "las ocho de la mañana en lanzarote que hora son en la zona del este", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
-{"q": "cae el veintitrés un fin de semana", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
-{"q": "añadir nuevo correo electrónico a contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
-{"q": "he recibido algún correo en la última hora", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
+{"q": "añade revisión de coche a mi lista de que hacer hoy", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "agregar ketchup a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "haz una nueva lista para mi", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añade cebollino a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "podrías crear una nueva lista para mi", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añade cortar césped a la lista de cosas por hacer", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crear una nueva lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "por favor actualiza la lista con el nuevo artículo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crear lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "abre una nueva lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "por favor pídeme la comida de este mes", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "empezar lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "quiero hacer la lista de tareas de la próxima semana", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "necesito más leche", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crear un artículo para agregarlo a mi lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "quiero tener una nueva lista de reproducción de canciones", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "por favor cree una lista de pagos debidos a aquellos que no recibieron más de diez meses", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crear una nueva lista de tareas", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "nosotros necesitamos leche", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "este elemento debe ser añadido a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "abre de nuevo compra y añade leche", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añadir a mi lista de tareas hacer mi currículum", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añadir a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "creo que me quedé sin esto puedes añadirlo a mi lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "actual", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "poner zapatos en mi lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "por favor pon pan en la lista del supermercado", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crea una nueva lista para mañana", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "agregar nuevos elementos en la lista de alarma", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "poner leche en la lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "poner perro limpio en la parte superior de la lista de limpieza", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "puede añadir leche a mi lista de la compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crea una lista para las tareas de hoy", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "pon esto en mi lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "haz una nueva lista para mi por favor", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "configure una nueva lista con lo siguiente", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "necesito agregar agua a mi lista de muller", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añadir cita en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "actualizar la lista de ejercicios con nuevos elementos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "olly añadir pañales en la lista de cosméticos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "necesito agregar pasta y leche a la lista de compras", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "selecciona el artículo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "dame una lista nueva", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "agregar huevos a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "alexa añade lista de la compra a mi lista de tareas", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "empieza una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "mi nuevo chequeo de salud nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "pon huevos en la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "quiero hacer una lista y esto debería guardarse automáticamente como un archivo de texto con la lista de títulos", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "quiero empezar una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añade estos documentos a las cosas que necesito para viajar", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añadir artículo", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "agregar huevos a mi lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añade sopa a mi lista de compra", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "añade el articulo a la lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "hacer una nueva lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "quiero que me crees una lista", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "crear una nueva lista gracias", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "generar un nuevo inventario", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "oye olly necesito que hagas una lista de jugadores de cricket del equipo indio que jugaron en el equipo internacional en dos mil catorce", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "puedes crear una nueva lista para mí", "expected_action": "crear_nota", "source": "massive:lists_createoradd", "split": "train"}
+{"q": "a qué hora son mis alarmas", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
+{"q": "apaga mis alarmas", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
+{"q": "necesito una alarma a las nueve de la noche", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
+{"q": "necesito ver la configuración del volumen", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
+{"q": "abrir el resto y encontrar la hora de la reunión", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
+{"q": "elimina el próximo evento del calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
+{"q": "si se adelanta doce horas a la hora estándar de los centauros del en el este cuál es la hora actual en filipinas", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
+{"q": "que dia es hoy", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
+{"q": "guardar mis contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
+{"q": "cualquier correo electrónico importante de la última hora", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
 {"q": "busca el contacto", "expected_action": "ninguna", "source": "massive:email_querycontact", "split": "train"}
 {"q": "hola como estas", "expected_action": "ninguna", "source": "massive:general_greet", "split": "train"}
 {"q": "cuentame un chiste verde", "expected_action": "ninguna", "source": "massive:general_joke", "split": "train"}
@@ -1475,19 +1835,16 @@
 {"q": "me lo entregaran", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "train"}
 {"q": "llama al número de teléfono", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "train"}
 {"q": "encuéntrame un billete de tren el próximo lunes a pamplona", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "train"}
-{"q": "olly me enseñas mis alarmas", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
-{"q": "quitar alarma despertador para esta semana", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
-{"q": "por favor pon un recordaorio a las tres de la tarde el sábado", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
-{"q": "quiero bajar mi altavoz", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "train"}
-{"q": "modo silencioso cuatro horas", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "train"}
+{"q": "me enseñas las alarmas que yo tengo puestas", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
+{"q": "quitar la alarma de mañana", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
+{"q": "necesito irme mañana a las ocho de la mañana preparar una alarma treinta minutos antes de eso", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
 {"q": "dame la configuración de volumen", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
-{"q": "sube el volumen al máximo", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "train"}
-{"q": "leer los siguientes recordatorios esta tarde", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
-{"q": "borrar", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
-{"q": "zona horaria entre la india y nosotros", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
-{"q": "dime que hora es actualmente", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
-{"q": "agregar correo electrónico a los contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
-{"q": "como yo mis dos últimos correos electrónicos", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
+{"q": "que hay en mi calendario hoy", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
+{"q": "limpiar mi calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
+{"q": "en qué zona horaria estamos cambie a la actual", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
+{"q": "hora y fecha actual por favor", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
+{"q": "añade doctor maria en los contactos de correo electrónico", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
+{"q": "hay algún correo electrónico reciente de martina", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
 {"q": "cuándo es el cumpleaños de juan", "expected_action": "ninguna", "source": "massive:email_querycontact", "split": "train"}
 {"q": "buenas tardes", "expected_action": "ninguna", "source": "massive:general_greet", "split": "train"}
 {"q": "alexa cuentame un chiste", "expected_action": "ninguna", "source": "massive:general_joke", "split": "train"}
@@ -1511,19 +1868,16 @@
 {"q": "permite ese restaurante pedidos para llevar", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "train"}
 {"q": "llamar a un taxi", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "train"}
 {"q": "compre un boleto de amtrak de las vegas nevada a lakeland florida saliendo el primero de abril", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "train"}
-{"q": "qué alarmas hay puestas para mi", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
-{"q": "puedes por favor quitar la alarma", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
-{"q": "añadir una alarma a las cinco de la mañana en lugar de la alarma de las nueve de la noche", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
-{"q": "por favor baja el volumen", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "train"}
-{"q": "dejar de jugar", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "train"}
-{"q": "mostrar los ajustes de volumen", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
-{"q": "aumenta el volumen", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "train"}
-{"q": "por favor muestra la reunión de hoy con los clientes", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
-{"q": "ya no me uniré a mamá para almorzar mañana", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
-{"q": "cambia la zona horaria a america", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
-{"q": "la hora", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
-{"q": "añade este correo al nuevo contacto", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
-{"q": "que me escribió juan", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
+{"q": "tengo alguna alarma antes de las seis de la mañana", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
+{"q": "quitar alarma", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
+{"q": "poner alarma a las cinco y media de la mañana", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
+{"q": "ajustar cómodamente el sonido", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
+{"q": "cuánto queda para la próxima cita con el médico", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
+{"q": "elimina mi cita de mañana a las tres de la tarde", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
+{"q": "que hora es en singapur cuando nuestra hora son las cinco de la tarde", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
+{"q": "hora actual por favor", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
+{"q": "puedes agregar un nuevo correo electrónico a mis contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
+{"q": "busca en nandy que contiene el pago", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
 {"q": "lee el número de contacto de alex de mi agenda telefónica", "expected_action": "ninguna", "source": "massive:email_querycontact", "split": "train"}
 {"q": "como fue el dia", "expected_action": "ninguna", "source": "massive:general_greet", "split": "train"}
 {"q": "cual es tu mejor broma", "expected_action": "ninguna", "source": "massive:general_joke", "split": "train"}
@@ -1547,19 +1901,16 @@
 {"q": "puedo pedir en el telepizza para llevar", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "train"}
 {"q": "reserva un taxi para mi", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "train"}
 {"q": "quiero un billete de tren de granada a barcelona", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "train"}
-{"q": "avísame la hora de la alarma", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
-{"q": "olly borrar mi alarma despertador", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
-{"q": "ponga la alarma para este recordatorio de evento que se repite durante diez veces", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
-{"q": "no no bájale el volumen", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "train"}
-{"q": "silencia los altavoces", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "train"}
-{"q": "control del volumen por favor", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
-{"q": "quiero los altavoces al máximo", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "train"}
-{"q": "cuantas cosas tengo planeadas esta noche", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
-{"q": "eliminar todo del calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
+{"q": "estado de la alarma", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
+{"q": "quitar mis alarmas de las nueve de la mañana", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
+{"q": "poner alarma para la mañana", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
+{"q": "nivel de volumen", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
+{"q": "yo tengo una cita la semana que viene", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
+{"q": "borra el próximo evento del calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
 {"q": "cambia la hora estándar de madrid a tenerife", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
-{"q": "dime la hora de madrid ahora mismo", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
-{"q": "añadir correo electrónico", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
-{"q": "cuál fue el último correo que juan envió", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
+{"q": "que dia es hoy", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
+{"q": "añade dan arroba dancom a mis contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
+{"q": "muestra el correo electrónico reciente de josé siri", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
 {"q": "cuándo fue la última llamada que recibí de santiago", "expected_action": "ninguna", "source": "massive:email_querycontact", "split": "train"}
 {"q": "como va todo", "expected_action": "ninguna", "source": "massive:general_greet", "split": "train"}
 {"q": "cuéntame un chiste sobre gallinas", "expected_action": "ninguna", "source": "massive:general_joke", "split": "train"}
@@ -1583,19 +1934,16 @@
 {"q": "dónde está mi comida", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "train"}
 {"q": "encontrar un servicio de taxi cerca de mí", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "train"}
 {"q": "pasaje de tren seguro para mí el tres de julio", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "train"}
-{"q": "por favor dime las próximas alarmas", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
-{"q": "por favor cancelar todas las alarmas para mañana", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
-{"q": "poner una alarma para mi mañana", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
-{"q": "puedes bajar eso", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "train"}
-{"q": "volumen mudo ahora", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "train"}
-{"q": "establecer el promedio del dispositivo", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
-{"q": "lento", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "train"}
-{"q": "horario de hoy", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
-{"q": "borrar todos los eventos del calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
-{"q": "que hora es en singapur cuando nuestra hora son las cinco de la tarde", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
-{"q": "que fecha es el próximo sábado", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
-{"q": "añade apahelp arroba yahoo punto com a mis contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
-{"q": "por favor envíe una notificación cuando john responda", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
+{"q": "podrías decirme sobre la alarma llamada cama", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
+{"q": "resetear alarma", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
+{"q": "recordarme a las seis y media de la tarde", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
+{"q": "cambia la configuración de audio", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
+{"q": "donde es la reunión del martes por la mañana", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
+{"q": "por favor elimina todos los elementos de mi calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
+{"q": "son las diez de la mañana en hora estandar del este que hora es ahora en hora estandar del pacifico", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
+{"q": "que día de la semana es", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
+{"q": "añade sam arroba gmail punto com a mi lista de contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
+{"q": "me ha enviado alguien algún correo electrónico en la última hora", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
 {"q": "muestra el número de oficina de juan", "expected_action": "ninguna", "source": "massive:email_querycontact", "split": "train"}
 {"q": "hola", "expected_action": "ninguna", "source": "massive:general_greet", "split": "train"}
 {"q": "que es una broma tonta sabes", "expected_action": "ninguna", "source": "massive:general_joke", "split": "train"}
@@ -1619,19 +1967,16 @@
 {"q": "puedo recoger mi pedido grande en el pizza hut", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "train"}
 {"q": "olly puedes llamar a un taxi", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "train"}
 {"q": "reserva para mí un boleto de tren a barcelona", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "train"}
-{"q": "cuál es mi próxima alarma programada", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
-{"q": "por favor apagar mi alarma para esta tarde", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
-{"q": "poner nueva alarma a las cinco de la mañana", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
-{"q": "eres demasiado ruidoso", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "train"}
-{"q": "apaga el sonido", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "train"}
-{"q": "cambia el volumen", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
-{"q": "soy incapaz de oírte puedes hablar más alto", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "train"}
-{"q": "con quien me reuniré mañana en el trabajo", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
-{"q": "cancela el próximo evento de boda", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
-{"q": "cambiar la zona horaria de la zona horaria irlandesa a la zona horaria de moscú", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
-{"q": "caerá de domingo el cinco de diciembre", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
-{"q": "añade este correo a mi lista de contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
-{"q": "que correos he tenido desde anoche", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
+{"q": "puedo saber sobre las alarma que tienes puesta", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
+{"q": "quitar todas las alarmas puestas", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
+{"q": "poner alarma el jueves a las nueve de la noche", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
+{"q": "mejora la claridad del volumen", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
+{"q": "a qué hora tengo mi reunión mañana", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
+{"q": "eliminar el evento de mi reunión para el diecinueve de marzo a la una p. m.", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
+{"q": "cambia esta hora por i. s. t.", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
+{"q": "que hora es en sevilla", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
+{"q": "quiero la dirección de mi correo electrónico", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
+{"q": "controla si hay algún correo nuevo", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
 {"q": "proporcionar ubicación de contacto", "expected_action": "ninguna", "source": "massive:email_querycontact", "split": "train"}
 {"q": "hola como estas hoy", "expected_action": "ninguna", "source": "massive:general_greet", "split": "train"}
 {"q": "encontrar chistes en la web", "expected_action": "ninguna", "source": "massive:general_joke", "split": "train"}
@@ -1655,18 +2000,15 @@
 {"q": "puedo coger comida para llevar de la carola", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "train"}
 {"q": "consígueme un taxi", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "train"}
 {"q": "cómprame un billete de tren", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "train"}
-{"q": "qué alarmas hay ya puestas", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
-{"q": "olly quita mis alarmas actuales", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
-{"q": "despertarme a las nueve de la mañana", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
-{"q": "baja el volumen del altavoz", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "train"}
-{"q": "parar", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "train"}
-{"q": "da un sonido agradable", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
-{"q": "sube volumen por favor", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "train"}
-{"q": "tengo un partido de fútbol este fin de semana", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
-{"q": "por favor elimina todos los elementos de mi calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
+{"q": "qué alarmas tengo puestas par hoy", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
+{"q": "borrar mi alarma para mañana por la mañana", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
+{"q": "por favor pon una alarma para mi próxima reunión con el equipo a las tres de la tarde el próximo viernes", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
+{"q": "ajusta el volumen", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
+{"q": "asegúrate de que no tengo nada que hacer el viernes", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
+{"q": "borra todo mi calendario de hoy", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
 {"q": "necesito la zona horaria de madrid españa en vez de la zona horaria del centro", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
-{"q": "el último viernes del mes en que día cae", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
-{"q": "por favor añade un correo electrónico a mis contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
+{"q": "puede darme la fecha de hoy", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
+{"q": "crear nuevo contacto", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
 {"q": "revisa los emails de josu de la última hora", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
 {"q": "cuál es la dirección de correo electrónico de silvia", "expected_action": "ninguna", "source": "massive:email_querycontact", "split": "train"}
 {"q": "hola olly como estás", "expected_action": "ninguna", "source": "massive:general_greet", "split": "train"}
@@ -1691,19 +2033,16 @@
 {"q": "encontrar mi comida thai para llevar tailandesa alrededor de mercado central", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "train"}
 {"q": "necesito un taxi en una hora", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "train"}
 {"q": "reservar un billete de tren a la ciudad de leeds", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "train"}
-{"q": "tengo alguna alarma programada actualmente", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
-{"q": "borrar mi alarma de las cuatro de la mañana", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
-{"q": "por favor pon una alarma para mañana a las siete de la mañana", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
-{"q": "por favor el volumen más bajo", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "train"}
-{"q": "silencia los altavoces por un minuto necesito hace una llamada", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "train"}
-{"q": "ajustar cómodamente el sonido", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
-{"q": "más alto", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "train"}
-{"q": "todas las reuniones entre el diez y el trece de mayo", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
-{"q": "elimina el día del padre del calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
-{"q": "si llamo a mia en andalucía a la seis de la tarde que hora serìa ahí", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
-{"q": "qué fecha es el tercer viernes de este mes", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
-{"q": "agrega este correo electrónico a mi contacto", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
-{"q": "he recibido un email de miguel", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
+{"q": "a qué hora está mi alarma programada para mañana por la mañana", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
+{"q": "eliminar la alarma", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
+{"q": "necesito que pongas una alarma", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
+{"q": "cambia los ajustes de volumen a negativo", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
+{"q": "cuál es el código de vestimenta para la fiesta", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
+{"q": "ya no me uniré a mamá para almorzar mañana", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
+{"q": "convierte hora del este en hora del oeste", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
+{"q": "me puedes decir la hora en madrid", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
+{"q": "añade este correo a mi lista de contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
+{"q": "encuentra correos electrónicos sobre horas del trabajo", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
 {"q": "cuál es el número de teléfono de casa de juan", "expected_action": "ninguna", "source": "massive:email_querycontact", "split": "train"}
 {"q": "como estas", "expected_action": "ninguna", "source": "massive:general_greet", "split": "train"}
 {"q": "que es lo gracioso en un chiste sobre coche", "expected_action": "ninguna", "source": "massive:general_joke", "split": "train"}
@@ -1727,15 +2066,39 @@
 {"q": "tiene el restaurante para llevar", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "train"}
 {"q": "usando mis aplicaciones", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "train"}
 {"q": "olly necesito ir a valencia el viernes noche puedes cogerme un billete por favor", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "train"}
-{"q": "a qué hora está ajustada mis alarma", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
-{"q": "no me despiertes los fines de semana", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
-{"q": "crear evento con alarma para reunión en dos horas", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
-{"q": "baja volumen", "expected_action": "ninguna", "source": "massive:audio_volume_down", "split": "train"}
-{"q": "silenciar los altavoces de la sala", "expected_action": "ninguna", "source": "massive:audio_volume_mute", "split": "train"}
-{"q": "podrías cambiar el volumen", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
-{"q": "reactivar mi sonido", "expected_action": "ninguna", "source": "massive:audio_volume_up", "split": "train"}
-{"q": "trae mi agenda", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
-{"q": "eliminar todos los detalles de mi calendario", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
-{"q": "son las ocho de la noche en francia que hora es en madrid", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
-{"q": "cuál es la fecha actual hoy", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
-{"q": "guardar mis contactos", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
+{"q": "enumerar todas las alarmas", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
+{"q": "por favor quita la alarma que configuré", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
+{"q": "pon alarma mañana a las ocho de la mañana", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
+{"q": "cambia el volumen", "expected_action": "ninguna", "source": "massive:audio_volume_other", "split": "train"}
+{"q": "tengo algún recordatorio para hoy", "expected_action": "ninguna", "source": "massive:calendar_query", "split": "train"}
+{"q": "eliminar eventos", "expected_action": "ninguna", "source": "massive:calendar_remove", "split": "train"}
+{"q": "las ocho de la mañana en lanzarote que hora son en la zona del este", "expected_action": "ninguna", "source": "massive:datetime_convert", "split": "train"}
+{"q": "cuantos días hay hasta el veinticinco de mayo", "expected_action": "ninguna", "source": "massive:datetime_query", "split": "train"}
+{"q": "agrega este correo electrónico a mi contacto", "expected_action": "ninguna", "source": "massive:email_addcontact", "split": "train"}
+{"q": "abrir todos los correos electrónicos no leídos", "expected_action": "ninguna", "source": "massive:email_query", "split": "train"}
+{"q": "llama a mamá", "expected_action": "ninguna", "source": "massive:email_querycontact", "split": "train"}
+{"q": "buenas noches", "expected_action": "ninguna", "source": "massive:general_greet", "split": "train"}
+{"q": "cuéntame un chiste sobre pájaros", "expected_action": "ninguna", "source": "massive:general_joke", "split": "train"}
+{"q": "respuesta", "expected_action": "ninguna", "source": "massive:general_quirky", "split": "train"}
+{"q": "inicia aspiradora", "expected_action": "ninguna", "source": "massive:iot_cleaning", "split": "train"}
+{"q": "prepáranos unas tazas de café", "expected_action": "ninguna", "source": "massive:iot_coffee", "split": "train"}
+{"q": "cambia la luz del baño a amarillo", "expected_action": "ninguna", "source": "massive:iot_hue_lightchange", "split": "train"}
+{"q": "apaga las luces de la sala apaga", "expected_action": "ninguna", "source": "massive:iot_hue_lightdim", "split": "train"}
+{"q": "no luces", "expected_action": "ninguna", "source": "massive:iot_hue_lightoff", "split": "train"}
+{"q": "puedes poner las luces en el ajuste alto", "expected_action": "ninguna", "source": "massive:iot_hue_lighton", "split": "train"}
+{"q": "más luz por favor", "expected_action": "ninguna", "source": "massive:iot_hue_lightup", "split": "train"}
+{"q": "apaga el ventilador", "expected_action": "ninguna", "source": "massive:iot_wemo_off", "split": "train"}
+{"q": "enciende el enchufe inteligente", "expected_action": "ninguna", "source": "massive:iot_wemo_on", "split": "train"}
+{"q": "tengo algo pendiente en alguna lista", "expected_action": "ninguna", "source": "massive:lists_query", "split": "train"}
+{"q": "eliminar la siguiente lista", "expected_action": "ninguna", "source": "massive:lists_remove", "split": "train"}
+{"q": "recuerda que a mi no me gusta esta música", "expected_action": "ninguna", "source": "massive:music_dislikeness", "split": "train"}
+{"q": "guarda esta canción como favorita", "expected_action": "ninguna", "source": "massive:music_likeness", "split": "train"}
+{"q": "pon la playlist en modo aleatorio", "expected_action": "ninguna", "source": "massive:music_settings", "split": "train"}
+{"q": "mario", "expected_action": "ninguna", "source": "massive:play_game", "split": "train"}
+{"q": "pídeme algo de comida", "expected_action": "ninguna", "source": "massive:takeaway_order", "split": "train"}
+{"q": "las cuatro rosas hacen pedidos en línea", "expected_action": "ninguna", "source": "massive:takeaway_query", "split": "train"}
+{"q": "reservar un taxi local", "expected_action": "ninguna", "source": "massive:transport_taxi", "split": "train"}
+{"q": "alexa reservame un tren para esta tarde a madrid", "expected_action": "ninguna", "source": "massive:transport_ticket", "split": "train"}
+{"q": "qué alarmas están surgiendo", "expected_action": "ninguna", "source": "massive:alarm_query", "split": "train"}
+{"q": "cancelar mi alarma de las ocho de la mañana", "expected_action": "ninguna", "source": "massive:alarm_remove", "split": "train"}
+{"q": "ponga la alarma dentro de dos horas", "expected_action": "ninguna", "source": "massive:alarm_set", "split": "train"}
