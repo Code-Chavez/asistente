@@ -9,7 +9,7 @@ try:
     import os
     import tempfile
     AUDIO_AVAILABLE = True
-except ImportError:
+except (ImportError, OSError):  # OSError: sounddevice sin la librería PortAudio
     AUDIO_AVAILABLE = False
 
 from wake_word import WakeWordListener

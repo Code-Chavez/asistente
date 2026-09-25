@@ -7,7 +7,7 @@ try:
     import sounddevice as sd
     from scipy.io.wavfile import write as wav_write
     AUDIO_AVAILABLE = True
-except ImportError:
+except (ImportError, OSError):  # OSError: sounddevice sin la librería PortAudio
     AUDIO_AVAILABLE = False
 
 SAMPLE_RATE = 44100

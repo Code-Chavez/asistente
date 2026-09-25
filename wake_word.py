@@ -19,7 +19,7 @@ try:
     import openwakeword
     from openwakeword.model import Model
     OPENWAKEWORD_AVAILABLE = True
-except ImportError:
+except (ImportError, OSError):  # OSError: sounddevice sin la librería PortAudio
     OPENWAKEWORD_AVAILABLE = False
 
 SAMPLE_RATE = 16000   # openWakeWord trabaja a 16 kHz
