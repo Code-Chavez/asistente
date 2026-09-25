@@ -14,6 +14,20 @@ except ImportError:
 
 from wake_word import WakeWordListener
 
+SI = {"si", "sí", "confirmo", "confirmado", "dale", "hazlo", "adelante", "ok", "vale", "si hazlo", "sí hazlo"}
+NO = {"no", "cancela", "cancelar", "no lo hagas", "mejor no", "nada"}
+
+
+def respuesta_si_no(text: str):
+    """True/False si el texto es una respuesta de confirmación, None si es otro comando."""
+    t = text.lower().strip(" .,!¡?¿")
+    if t in SI:
+        return True
+    if t in NO:
+        return False
+    return None
+
+
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
@@ -27,6 +41,7 @@ class JarvisGUI(ctk.CTk):
         self.actions = actions or []          # acciones disponibles para corregir
         self.pending_feedback = None          # (action, query) de la última respuesta
         self.correction_query = None          # texto pendiente de corrección tras un 👎
+        self.pending_confirmation = None      # (action, query) esperando un "sí" del usuario
         self.wake_listener = None             # escucha de palabra clave "Jarvis"
         self.last_details = None              # data de la última acción (bajo demanda)
         self.title("Jarvis Assistant")
@@ -57,6 +72,15 @@ class JarvisGUI(ctk.CTk):
         # Estado del wake word (se actualiza en vivo con el pico de detección)
         self.wake_status_label = ctk.CTkLabel(self, text="", font=("Consolas", 11), text_color="#888888")
         self.wake_status_label.pack(pady=(0, 4), padx=20, anchor="w")
+        # Barra de confirmación (oculta hasta que una acción sensible la pida)
+        self.confirm_frame = ctk.CTkFrame(self, fg_color="transparent")
+        ctk.CTkLabel(self.confirm_frame, text="¿Lo hago?", font=("Consolas", 12)).pack(side="left", padx=(0, 10))
+        ctk.CTkButton(self.confirm_frame, text="Sí", width=70, height=32,
+                      command=lambda: self._answer_confirmation(True),
+                      fg_color="#2E7D32", hover_color="#1B5E20").pack(side="left", padx=5)
+        ctk.CTkButton(self.confirm_frame, text="No", width=70, height=32,
+                      command=lambda: self._answer_confirmation(False),
+                      fg_color="#C62828", hover_color="#8E0000").pack(side="left", padx=5)
         # Barra de feedback 👍/👎 (solo si hay callback de aprendizaje)
         if self.feedback_callback:
             self.feedback_frame = ctk.CTkFrame(self, fg_color="transparent")
@@ -124,10 +148,12 @@ class JarvisGUI(ctk.CTk):
                 self.correction_query = query
                 self._show_correction(exclude=action)
 
-    def _show_correction(self, exclude: str = None):
+    def _show_correction(self, exclude: str = None, preferred: str = None, query: str = None):
+        if query is not None:
+            self.correction_query = query
         opts = [a for a in self.actions if a != exclude] or list(self.actions)
         self.correction_menu.configure(values=opts)
-        self.correction_menu.set(opts[0])
+        self.correction_menu.set(preferred if preferred in opts else opts[0])
         self.correction_frame.pack(pady=(0, 10), padx=20, fill="x")
 
     def _hide_correction(self):
@@ -143,6 +169,26 @@ class JarvisGUI(ctk.CTk):
             return
         self.log_message("Sistema", f"✅ Aprendido: '{query}' → [{correct}]. ¡Gracias por corregirme!")
         self._apply_feedback(correct, 1.0, query)
+
+    def _ask_confirmation(self, action: str, query: str):
+        self.pending_confirmation = (action, query)
+        self.confirm_frame.pack(pady=(0, 10), padx=20, fill="x")
+
+    def _hide_confirmation(self):
+        self.pending_confirmation = None
+        self.confirm_frame.pack_forget()
+
+    def _answer_confirmation(self, yes: bool):
+        pending = self.pending_confirmation
+        self._hide_confirmation()
+        if not pending:
+            return
+        action, query = pending
+        if yes:
+            threading.Thread(target=self._execute, args=(query, action), daemon=True).start()
+        else:
+            self.log_message("Jarvis", "De acuerdo, no lo hago.")
+
     def log_message(self, sender: str, message: str):
         self.textbox.configure(state="normal")
         self.textbox.insert("end", f"[{sender}] {message}\n\n")
@@ -317,13 +363,40 @@ class JarvisGUI(ctk.CTk):
             msg = f"Detalles de la última acción: {det}" if det else "No tengo detalles de la última acción."
             self.after(0, lambda: self.log_message("Jarvis", msg))
             return
+        # Respuesta a una confirmación pendiente ("sí"/"no", escrito o por voz)
+        if self.pending_confirmation:
+            answer = respuesta_si_no(text)
+            if answer is not None:
+                self.after(0, lambda: self._answer_confirmation(answer))
+                return
+            # Otro comando distinto: la confirmación anterior queda descartada
+            self.after(0, self._hide_confirmation)
+        self._execute(text)
+
+    def _execute(self, text: str, confirmed_action: str = None):
+        """Ejecuta un comando (en un hilo de trabajo) y muestra la respuesta."""
         if self.feedback_callback:
             self.pending_feedback = None
             self.after(0, self._hide_correction)
             self.after(0, lambda: self._set_feedback_enabled(False))
-        response = self.execute_callback({"q": text, "dry_run": False})
-        action = response.get("action", "Desconocido")
+        ctx = {"q": text, "dry_run": False}
+        if confirmed_action:
+            ctx["confirmed_action"] = confirmed_action
+        response = self.execute_callback(ctx)
         res_data = response.get("result", {})
+        if response.get("uncertain"):
+            # No ejecutamos nada; ofrecemos enseñarle la acción correcta
+            self.after(0, lambda: self.log_message("Jarvis", res_data.get("message", "")))
+            if self.feedback_callback and self.actions:
+                suggestion = response.get("suggestion")
+                self.after(0, lambda: self._show_correction(preferred=suggestion, query=text))
+            return
+        if response.get("needs_confirmation"):
+            pending_action = response["action"]
+            self.after(0, lambda: self.log_message("Jarvis", res_data.get("message", "")))
+            self.after(0, lambda: self._ask_confirmation(pending_action, text))
+            return
+        action = response.get("action") or "Desconocido"
         success = res_data.get("success", False)
         msg = res_data.get("message", "")
         if not msg:

@@ -18,6 +18,7 @@ training_log.jsonl
 # ---- Datos personales / de sesión (NO subir a GitHub) ----
 agent/chat_history.json
 agent/preferences.json
+agent/feedback_data.jsonl
 
 # ---- Notas y capturas generadas por el asistente ----
 notes/*.txt
@@ -34,3 +35,7 @@ assets/*.png
 .idea/
 .DS_Store
 Thumbs.db
+
+# ---- Datos de entrenamiento ----
+data/raw/
+agent/pendientes.jsonl

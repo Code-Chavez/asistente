@@ -27,10 +27,15 @@ jobs:
         # No bloqueamos el build si alguna no instala en el runner de Ubuntu.
         pip install -r requirements.txt || echo "Aviso: deps de escritorio omitidas en Linux; el linting no las requiere."
         pip install -r requirements-dev.txt
-        
+        # Lo mínimo para los tests (por si falló la instalación de arriba)
+        pip install scikit-learn numpy
+
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings.
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+    - name: Tests
+      run: python -m pytest -q
