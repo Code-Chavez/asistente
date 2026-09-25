@@ -3,11 +3,6 @@ customtkinter
 mss
 Pillow
 SpeechRecognition
-scikit-learn
-customtkinter
-mss
-Pillow
-SpeechRecognition
 sounddevice
 scipy
 pyttsx3
@@ -16,5 +11,4 @@ pyautogui
 pygetwindow
 openwakeword
 onnxruntime
-sounddevice
 numpy
